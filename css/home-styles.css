@@ -690,7 +690,7 @@ section[class$="section"] {
   padding-top: 2rem;
   height: fit-content;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   font-family: var(--montserrat-font);
   background-color: var(--dark-brown);
 }
@@ -704,6 +704,16 @@ section[class$="section"] {
   gap: 2rem;
 }
 
+.footer-img img {
+  height: 25vh;
+  width: 25vh;
+
+  margin: 0 auto;
+}
+
+.footer-img {
+  margin: 0 auto;
+}
 #footer-logo {
   width: 500px;
   height: 300px;
