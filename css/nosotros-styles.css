@@ -359,7 +359,7 @@ section[class$="section"] {
   cursor: pointer;
 }
 
-.line {
+.nav-links + .line {
   transition: width 0.7s;
   height: 2px;
   background-color: var(--white);
@@ -367,6 +367,7 @@ section[class$="section"] {
 }
 
 .nav-links:hover + .line {
+  background-color: var(--white);
   width: 100%;
 }
 
