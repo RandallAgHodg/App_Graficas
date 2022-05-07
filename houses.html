@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="iso-8869-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bienes raices" />
+    <meta
+      name="keywords"
+      content="Nicaragua, Bienes Raices, Descuentos, Casas, Negocios"
+    />
+    <title>Bienes Raices Randall - Casas</title>
+    <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/houses-styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="info-button">Mas Información</button>
+    <div class="mask">
+      <nav class="nav-bar">
+        <img class="logo" src="imgs/Logo.png" alt="logo" />
+        <div>
+          <ul class="links-container">
+            <div class="link">
+              <li class="nav-links"><a href="/">Inicio</a></li>
+              <div class="line"></div>
+            </div>
+            <div class="link">
+              <li class="nav-links"><a href="nosotros.html">Nosotros</a></li>
+              <div class="line"></div>
+            </div>
+            <div class="link">
+              <li class="nav-links"><a href="houses.html">Ver casas</a></li>
+              <div class="line"></div>
+            </div>
+            <div class="link">
+              <li class="nav-links">
+                <a href="apartments.html">Ver Apartamentos</a>
+              </li>
+              <div class="line"></div>
+            </div>
+            <div class="link">
+              <li class="nav-links"><a href="/">Contactanos</a></li>
+              <div class="line"></div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <section class="search-form-section">
+      <div class="search-container">
+        <form class="search-form" id="search-form">
+          <div class="fields-form">
+            <div class="address-field">
+              <input type="text" class="search" id="search" />
+              <label for="search">Gancho de camino</label>
+              <img
+                src="/imgs/Vector.png"
+                alt="search icon"
+                class="search-img"
+              />
+            </div>
+            <div class="price-field">
+              <input
+                type="range"
+                step="0.1"
+                class="price-slider"
+                max="100,000.00"
+                min="10,000.00"
+                value="50,000"
+              />
+              <div class="prices-list">
+                <span>10,000.00 $</span><span>50,000.00 $</span
+                ><span>100,000.00 $</span>
+              </div>
+              <p>
+                Casas con precios menores o iguales a
+                <span class="price-span">50,000.00 $</span>
+              </p>
+            </div>
+            <div class="discounts-field">
+              <input
+                type="checkbox"
+                name="discounts-input"
+                class="discounts-input"
+                id="discounts-input"
+              />
+              <label for="discounts-input">Solo con descuentos</label>
+            </div>
+          </div>
+          <div class="advanced-search-fields hidden">
+            <div class="pools-field">
+              <div>
+                <label for="pools-input">Piscinas</label>
+              </div>
+              <div class="number-input-container">
+                <button type="button" class="button-decrement"></button>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    id="pools-input"
+                    name="hue"
+                    class="number-input-text-box"
+                    value="0"
+                    min="0"
+                    max="2"
+                    data-step="1"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="button-increment"
+                  onclick="setNumber(event)"
+                  data-operation="increment"
+                ></button>
+              </div>
+            </div>
+
+            <div class="floors-field">
+              <div>
+                <label for="floors-input">Pisos</label>
+              </div>
+              <div class="number-input-container">
+                <button type="button" class="button-decrement"></button>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    id="floors-input"
+                    name="floors"
+                    class="number-input-text-box"
+                    value="0"
+                    min="0"
+                    max="3"
+                    data-step="1"
+                  />
+                </div>
+                <button type="button" class="button-increment"></button>
+              </div>
+            </div>
+
+            <div class="rooms-field">
+              <div>
+                <label for="rooms-input">Cuartos</label>
+              </div>
+              <div class="number-input-container">
+                <button type="button" class="button-decrement"></button>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    id="rooms-input"
+                    name="floors"
+                    class="number-input-text-box"
+                    value="0"
+                    min="0"
+                    max="3"
+                    data-step="1"
+                  />
+                </div>
+                <button type="button" class="button-increment"></button>
+              </div>
+            </div>
+
+            <div class="discounts-field">
+              <input
+                type="checkbox"
+                name="discounts-input"
+                class="discounts-input"
+                id="balcon-input"
+              />
+              <label for="balcon-input">Con balcon</label>
+            </div>
+
+            <div class="discounts-field">
+              <input
+                type="checkbox"
+                name="discounts-input"
+                class="discounts-input"
+                id="terraza-input"
+              />
+              <label for="terraza-input">Con terraza</label>
+            </div>
+          </div>
+          <div class="search-btn">
+            <input type="submit" value="Buscar" class="submit-btn" />
+
+            <h2>Busqueda avanzada</h2>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="houses-section">
+      <h1>Catalogo de casas</h1>
+      <div class="houses-container">
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state renta">
+              <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
+              <h3 class="renta">En renta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state">
+              <img src="imgs/Money.svg" alt="billete icono" />
+              <h3>En venta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state renta">
+              <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
+              <h3 class="renta">En renta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state">
+              <img src="imgs/Money.svg" alt="billete icono" />
+              <h3>En venta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state renta">
+              <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
+              <h3 class="renta">En renta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state">
+              <img src="imgs/Money.svg" alt="billete icono" />
+              <h3>En venta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state renta">
+              <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
+              <h3 class="renta">En renta</h3>
+            </div>
+          </div>
+        </div>
+        <div class="houses-section-house-card">
+          <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
+          <div class="houses-section-house-card-info">
+            <div class="houses-section-house-card-content">
+              <div class="houses-section-house-card-title">
+                <div class="dot"></div>
+                <h3>Casa Bonita</h3>
+              </div>
+              <h4>350m²</h4>
+              <p>De la uca 1c arriba 1c abajo</p>
+            </div>
+            <div class="houses-section-house-card-state">
+              <img src="imgs/Money.svg" alt="billete icono" />
+              <h3>En venta</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-container">
+      <img id="footer-logo" src="imgs/Logo.png" alt="logo footer" />
+      <div class="footer-info">
+        <h1>Contacto</h1>
+        <h2>bienes.raices@std.uni.edu.ni</h2>
+        <h3>¿Dudas?</h3>
+        <h4>
+          Escribe por email o whatsapp y un agente de <br />
+          atención al cliente atenderá tu caso.
+        </h4>
+        <div class="whatsapp-footer">
+          <img src="imgs/Whatsapp.png" alt="whatsapp bienes raices randall" />
+          <p>(505) 1234 - 5678</p>
+        </div>
+      </div>
+      <div class="footer-img">
+        <img src="imgs/MapaMock.jpg" alt="" />
+      </div>
+      <div class="social-networks-nav">
+        <h2>Siguenos en</h2>
+        <div class="social-network-links">
+          <img
+            src="imgs/Twitter.png"
+            alt="bienes raices redes sociales twitter"
+          />
+          <img
+            src="imgs/Facebook.png"
+            alt="bienes raices redes sociales facebook"
+          />
+          <img
+            src="imgs/Instagram.png"
+            alt="bienes raices redes sociales instagram"
+          />
+          <img
+            src="imgs/Youtube.png"
+            alt="bienes raices redes sociales youtube"
+          />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
