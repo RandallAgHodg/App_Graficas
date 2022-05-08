@@ -54,15 +54,117 @@
     <section class="house-detail">
       <h1 class="house-title">Casa Bonita</h1>
       <div class="house-card">
-        <img src="imgs/pexels-expect-best-323780.jpg" alt="imagen casa" />
+        <img
+          class="house-card-img"
+          src="imgs/pexels-expect-best-323780.jpg"
+          alt="imagen casa"
+        />
         <div class="card-content">
-          <p class="house-card-title">Casa Bonita</p>
-          <div class="dot"></div>
-          <p class="house-card-area">3,800 mts&sup2;</p>
-          <p class="House-card-price">$ 40,000.00</p>
+          <div class="card-main-info">
+            <p class="house-card-title">Casa Bonita</p>
+            <div class="dot"></div>
+            <p class="house-card-area">3,800 mts&sup2;</p>
+          </div>
+          <p class="house-card-price">$ 40,000.00</p>
           <p class="house-card-address">
             De la fabrica de willy wonka 10vrs al este 2 al sur
           </p>
+          <div class="house-card-line"></div>
+          <div class="house-card-detail">
+            <div class="house-card-detail-bathrooms">
+              <img src="imgs/Bathrooms.png" alt="Bathrooms icon" />
+              <span class="bathrooms-info">2 Baños</span>
+            </div>
+            <div class="house-card-detail-bedrooms">
+              <img src="imgs/Rooms.png" alt="Bedrooms icon" />
+              <span class="bedrooms-info">3 Dormitorios</span>
+            </div>
+            <div class="house-card-detail-rooms">
+              <img src="imgs/bi_house.png" alt="Rooms icon" />
+              <span class="bathrooms-info">4 Habitaciones</span>
+            </div>
+          </div>
+          <div class="house-card-line"></div>
+          <div class="house-card-detail">
+            <div class="house-card-detail-pool">
+              <img src="imgs/akar-icons_check.png" alt="check icon" />
+              <span class="bathrooms-info">Piscina</span>
+            </div>
+            <div class="house-card-detail-bedrooms">
+              <img src="imgs/clarity_building-line.png" alt="Floors icon" />
+              <span class="bedrooms-info">2 Pisos</span>
+            </div>
+            <div class="house-card-detail-rooms">
+              <img src="imgs/iconmonstr-x-mark-thin-240.png" alt="No icon" />
+              <span class="bathrooms-info">Terraza</span>
+            </div>
+            <div class="house-card-detail-rooms">
+              <img src="imgs/iconmonstr-x-mark-thin-240.png" alt="No icon" />
+              <span class="bathrooms-info">Balcon</span>
+            </div>
+          </div>
+          <div class="house-card-line"></div>
+          <div class="agent-info">
+            <img src="imgs/AgentCard.jpg" alt="agent picture" />
+            <div class="agent-info-content">
+              <span class="agent-info-name"> Manuel Pereira </span>
+              <span class="agent-info-name"> (505) 444-123 </span>
+            </div>
+          </div>
+          <a class="booking-btn" href="#agent-section">Agendar una reunion</a>
+        </div>
+      </div>
+    </section>
+    <div class="house-video-section">
+      <video class="house-video" autoplay controls loop>
+        <source src="videos/production ID_3770033.mp4" type="video/mp4" />
+        Tu navegador no soporta videos
+      </video>
+    </div>
+    <section id="agent-section" class="agent-section">
+      <div class="agent-container">
+        <div class="agent-container-info">
+          <h1>!Siempre dispuestos para ti!</h1>
+          <img src="imgs/AgentInfoImg.png" alt="Agent image" />
+          <h2 class="agent-name">Manuel Pereira</h2>
+          <h3 class="agent-role">Agente De Bienes y Raices</h3>
+        </div>
+        <div class="form-content">
+          <form action="" class="agent-form" id="agent-form">
+            <h3>Agenda una reunión con nosotros</h3>
+            <div class="form-container">
+              <div class="input-field">
+                <label for="Name">Nombre</label>
+                <input type="text" name="Name" id="Name" required asd />
+              </div>
+              <div class="input-field">
+                <label for="Phone">Teléfono</label>
+                <input type="tel" name="Phone" id="Phone" required />
+              </div>
+              <div class="input-field">
+                <label for="Email">Correo</label>
+                <input type="email" name="Email" id="Email" required />
+              </div>
+              <div class="input-field">
+                <label for="Description">Mensaje</label>
+                <textarea
+                  required
+                  name="Description"
+                  id="Description"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="input-btn-container">
+                <input
+                  id="contact-submit"
+                  class="contact-btn"
+                  type="submit"
+                  value="Contacta con nuestro Agente"
+                />
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>

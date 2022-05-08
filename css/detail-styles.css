@@ -233,13 +233,18 @@
   --light-peach: #fdf6ec;
   --ligh-brown: #f8edeb;
   --dark-brown: #7c5b55;
+  --dark-gray: #e5e5e5;
   --green-enabled-color: #62a685;
   --red: #ff7a7a;
   --black: #000;
   --dark-gray: #495057;
+  --aqua: #85b6ff;
+  --dark-blue: #3777d6;
   --purple: #5534a5;
+  --bone-white: #fafafa;
   --light-gray: #676767;
   --brown: #ccb8a6;
+  --gray: #9a9a9a;
 }
 
 html {
@@ -308,6 +313,8 @@ button {
 }
 
 body {
+  background-color: var(--light-peach);
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -385,10 +392,6 @@ section[class$="section"] {
   color: var(--ligh-brown);
 }
 
-body {
-  background-color: var(--light-peach);
-}
-
 .mask {
   width: 100vw;
   background-color: var(--brown);
@@ -406,6 +409,234 @@ body {
 .house-title {
   font-family: var(--nunito-font);
   text-align: center;
+}
+
+.house-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.house-card {
+  width: 60vw;
+  border-radius: 1rem;
+  background-color: var(--white);
+}
+
+.house-card-img {
+  width: 60vw;
+  height: 40vh;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.house-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-main-info {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  color: var(--gray);
+  font-family: var(--montserrat-font);
+  font-weight: 500;
+}
+
+.dot {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--gray);
+  border-radius: 100%;
+}
+
+.house-card-price,
+.house-card-address {
+  margin: 2rem 0;
+  font-family: var(--montserrat-font);
+  font-weight: 600;
+  font-size: 2.7rem;
+  text-align: center;
+}
+
+.house-card-line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--gray);
+}
+
+.house-card-detail {
+  display: flex;
+  margin: 1rem 0;
+}
+
+div[class^="house-card-detail"] {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+div[class^="house-card-detail"] > span {
+  font-family: var(--montserrat-font);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+div[class^="house-card-detail"] > img {
+  width: 2vw;
+  height: 2vw;
+  object-fit: cover;
+}
+
+.agent-info {
+  background-color: var(--bone-white);
+  padding: 1rem 3rem;
+  display: flex;
+  gap: 18rem;
+  align-items: center;
+}
+
+.agent-info-content {
+  display: flex;
+  font-family: var(--montserrat-font);
+  font-weight: 600;
+  font-size: 1.5rem;
+  flex-direction: column;
+}
+
+.booking-btn {
+  background-color: var(--aqua);
+  text-transform: uppercase;
+  display: block;
+  padding: 2rem 0;
+  text-align: center;
+  font-family: var(--montserrat-font);
+  font-weight: 600;
+  font-size: 3rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  transition: background-color ease-in-out 0.3s;
+}
+
+.booking-btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.house-video-section {
+  display: flex;
+  margin-bottom: 4rem;
+}
+
+.house-video {
+  width: 80vw;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+.agent-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.agent-container-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--nunito-font);
+}
+
+.agent-container-info h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.agent-container-info h2 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.agent-container-info h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.form-content {
+  transform: translateX(30%);
+  width: 100%;
+}
+
+.form-container {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 10rem)) 20rem;
+  row-gap: 1rem;
+}
+
+.agent-form {
+  background-color: white;
+  font-family: var(--nunito-font);
+  border-radius: 1rem;
+  width: 30vw;
+  height: 80vh;
+  padding: 2rem 2rem 1rem 2rem;
+  box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
+}
+
+.agent-form h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+
+.input-field input,
+.input-field > textarea {
+  border: none;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.input-field > label {
+  font-family: var(--nunito-font);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contact-btn {
+  background-color: var(--aqua);
+  margin-top: 4rem;
+  transform: translateX(10%);
+  width: fit-content;
+  padding: 2rem 1rem;
+  border: none;
+  text-align: center;
+  font-family: var(--montserrat-font);
+  font-weight: 600;
+  font-size: 2.7rem;
+  border-radius: 1rem;
+  transition: background-color ease-in-out 0.3s;
+}
+
+.input-btn-container {
+  width: 0px;
+}
+
+.contact-btn:hover {
+  cursor: pointer;
+  background-color: var(--dark-blue);
 }
 
 .footer-container {
@@ -429,7 +660,6 @@ body {
 .footer-img img {
   height: 25vh;
   width: 25vh;
-
   margin: 0 auto;
 }
 
