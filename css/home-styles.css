@@ -307,13 +307,15 @@ button {
 }
 
 body {
+  overflow-x: hidden;
+}
+
+.mask {
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent),
     url("/imgs/pexels-sebastian-sørensen-731082.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200%;
-  overflow-x: hidden;
-  height: 100vh;
 }
 
 div[class$="container"] {
@@ -323,8 +325,7 @@ div[class$="container"] {
 
 section[class$="section"] {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .link-active {
@@ -334,8 +335,13 @@ section[class$="section"] {
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   width: 90vw;
+}
+
+.nav-bar > ul {
+  height: 100%;
 }
 
 .logo {
@@ -528,7 +534,7 @@ section[class$="section"] {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 3rem;
+  padding: 3rem 0;
 }
 
 .employees-container {
@@ -760,4 +766,147 @@ section[class$="section"] {
   width: 80px;
   height: 80px;
   cursor: pointer;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .mask {
+    background-size: 600%;
+  }
+
+  .nav-bar {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .links-container {
+    width: 90vw;
+  }
+
+  .info-button {
+    display: none;
+  }
+
+  .hero-section-button {
+    border: 1px solid var(--white);
+    margin-top: 10rem;
+    background-color: var(--white);
+    font-size: 2.4rem;
+    color: black;
+  }
+
+  .hero-section-title {
+    font-size: 4.3rem;
+    text-align: center;
+  }
+
+  .hero-section-subtitle,
+  .hero-section-title {
+    width: 90vw;
+  }
+
+  .houses-section-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+  }
+
+  .houses-section-house-card {
+    width: 40vw;
+  }
+
+  .houses-section-house-card-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .houses-section-house-card > img {
+    width: 40vw;
+    object-fit: cover;
+    align-self: center;
+  }
+
+  .houses-section-house-card:last-of-type {
+    display: none;
+  }
+  .houses-section-house-card-content {
+    width: 30vw;
+  }
+
+  .houses-section-house-card-content h4 {
+    font-size: 2rem;
+  }
+
+  .houses-section-house-card-content p {
+    font-size: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .houses-section-house-card-title {
+    width: 25vw;
+  }
+
+  .houses-section-house-card-title h3 {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+  }
+
+  .houses-section-house-card-state h3 {
+    font-size: 1.8rem;
+  }
+
+  .employees-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .agents-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .employee-card {
+    width: 100%;
+  }
+
+  .employee-card > img {
+    display: none;
+  }
+
+  .ceo-card {
+    width: 100%;
+  }
+
+  .ceo-card-info p {
+    font-size: 2.7rem;
+  }
+
+  .ceo-img {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .ceo-info h3,
+  .ceo-info h4 {
+    font-size: 5rem;
+  }
+
+  .footer-img {
+    display: none;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 2rem;
+  }
 }
