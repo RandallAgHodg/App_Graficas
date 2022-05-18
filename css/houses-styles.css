@@ -954,6 +954,11 @@ input[type="number"] {
     display: none;
   }
 
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
+  }
+
   .footer-container {
     display: grid;
     grid-template-columns: 1fr;

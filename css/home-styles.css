@@ -424,7 +424,8 @@ section[class$="section"] {
 .houses-section {
   background-color: var(--light-peach);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 .houses-section-container {
@@ -541,6 +542,7 @@ section[class$="section"] {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  min-height: 130vh;
   padding: 3rem 0;
 }
 
@@ -625,7 +627,7 @@ section[class$="section"] {
 .ceo-card {
   align-self: center;
   width: 35vw;
-  height: 70vh;
+  height: 80vh;
   background-color: white;
   border-radius: 1rem;
   box-shadow: -2px 10px 11px -3px rgba(0, 0, 0, 0.34);
@@ -662,11 +664,11 @@ section[class$="section"] {
 .ceo-img {
   align-self: center;
   border-radius: 100px;
-  width: 9vw;
+  width: 10vw;
   object-fit: cover;
-  height: 9vw;
+  height: 10vw;
   border: 5px solid var(--white);
-  transform: translateY(-60%);
+  transform: translateY(calc(-40% - 2vw));
 }
 
 .ceo-info {
@@ -877,6 +879,7 @@ section[class$="section"] {
   }
 
   .employees-container {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
   }
@@ -896,6 +899,7 @@ section[class$="section"] {
   }
 
   .ceo-card {
+    margin-top: 2rem;
     width: 100%;
   }
 
@@ -904,8 +908,9 @@ section[class$="section"] {
   }
 
   .ceo-img {
-    width: 25vw;
-    height: 25vw;
+    transform: translateY(calc(-40% - 2vw));
+    width: 20vw;
+    height: 20vw;
   }
 
   .ceo-info h3,
@@ -915,6 +920,11 @@ section[class$="section"] {
 
   .footer-img {
     display: none;
+  }
+
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
   }
 
   .footer-container {

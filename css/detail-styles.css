@@ -775,6 +775,11 @@ div[class^="house-card-detail"] > img {
     width: 70vw;
   }
 
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
+  }
+
   .footer-img {
     display: none;
   }

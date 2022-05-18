@@ -901,8 +901,13 @@ textarea:focus + label {
     transform: translateX(0%);
   }
 
-  .add .footer-img {
+  .footer-img {
     display: none;
+  }
+
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
   }
 
   .footer-container {

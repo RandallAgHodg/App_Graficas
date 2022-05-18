@@ -313,6 +313,7 @@ body {
 .mask {
   background: linear-gradient(rgba(0, 0, 0, 0.1), transparent),
     url("/imgs/nosotros-hero-img.jpg");
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -326,7 +327,6 @@ div[class$="container"] {
 
 section[class$="section"] {
   width: 100vw;
-  min-height: 100vh;
   padding-bottom: 3rem;
 }
 
@@ -647,6 +647,11 @@ section[class$="section"] {
     display: none;
   }
 
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
+  }
+
   .footer-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -690,7 +695,7 @@ section[class$="section"] {
   }
 
   .founder-section {
-    height: 125vh;
+    min-height: 160vh;
   }
 
   .founder-info {
