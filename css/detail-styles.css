@@ -331,8 +331,13 @@ section[class$="section"] {
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   width: 90vw;
+}
+
+.burger-mask {
+  display: none;
 }
 
 .logo {
@@ -425,7 +430,7 @@ section[class$="section"] {
 }
 
 .house-card-img {
-  width: 60vw;
+  width: 100%;
   height: 40vh;
   object-fit: cover;
   border-top-left-radius: 1rem;
@@ -576,15 +581,16 @@ div[class^="house-card-detail"] > img {
   display: grid;
   grid-template-rows: repeat(3, minmax(0, 10rem)) 20rem;
   row-gap: 1rem;
+  justify-content: center;
 }
 
 .agent-form {
-  background-color: white;
+  background-color: var(--white);
   font-family: var(--nunito-font);
   border-radius: 1rem;
-  width: 30vw;
+  width: 28vw;
   height: 80vh;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 2rem 2rem 6rem 2rem;
   box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
   -moz-box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
@@ -618,7 +624,7 @@ div[class^="house-card-detail"] > img {
 .contact-btn {
   background-color: var(--aqua);
   margin-top: 4rem;
-  transform: translateX(10%);
+  transform: translate(5%, -20%);
   width: fit-content;
   padding: 2rem 1rem;
   border: none;
@@ -712,4 +718,198 @@ div[class^="house-card-detail"] > img {
   width: 80px;
   height: 80px;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .mask {
+    background-size: 600%;
+  }
+
+  .nav-bar {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .links-container {
+    width: 90vw;
+  }
+
+  .house-card {
+    width: 80vw;
+    border-radius: 1rem;
+    background-color: var(--white);
+  }
+
+  .agent-info {
+    gap: 4rem;
+  }
+
+  .agent-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4rem;
+  }
+
+  .form-content {
+    transform: translateX(0);
+    text-align: center;
+    width: 80vw;
+    margin: 3rem auto;
+  }
+
+  .contact-btn {
+    transform: translateX(-15%);
+  }
+
+  .agent-form {
+    width: 80vw;
+    min-height: 100vh;
+  }
+
+  .input-field {
+    width: 70vw;
+  }
+
+  .footer-img {
+    display: none;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .house-card-detail {
+    flex-wrap: wrap;
+  }
+
+  div[class^="house-card-detail"] > img {
+    width: 100%;
+    height: 3rem;
+    object-fit: contain;
+  }
+  .agent-container-info {
+    display: none;
+  }
+
+  .logo {
+    width: 45%;
+    height: 45%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .burger-mask {
+    display: block;
+  }
+
+  .burger {
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    display: flex;
+    width: 8vh;
+    height: 8vh;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .border-none {
+    border: none;
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: var(--header3);
+    text-decoration: underline;
+  }
+
+  .links-container {
+    background: var(--light-gray);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 1s ease;
+  }
+
+  .nav-open {
+    transform: translateX(-100%);
+  }
+
+  .link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .link .line {
+    display: none;
+  }
+
+  .link:hover {
+    background-color: var(--dark-gray);
+  }
+
+  .toggle .line1 {
+    transform: rotateZ(40deg) translate(21%, 800%);
+    background: white;
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotateZ(-40deg) translate(20%, -800%);
+    background: white;
+  }
+
+  .burger div {
+    background-color: var(--white);
+    width: 65%;
+    height: 2px;
+    transition: all 0.5s ease;
+  }
+
+  .agent-section {
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .agent-form {
+    min-height: 100vh;
+  }
+
+  .contact-btn {
+    width: 75%;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
+  }
 }

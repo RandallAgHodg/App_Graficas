@@ -334,6 +334,7 @@ section[class$="section"] {
 
 .nav-bar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
@@ -359,10 +360,16 @@ section[class$="section"] {
 .nav-links {
   font-size: 2rem;
   font-weight: 500;
+  text-align: center;
+}
+
+.burger-mask {
+  display: none;
 }
 
 .link {
   z-index: 2;
+  margin-left: 2rem;
 }
 
 .nav-links:hover {
@@ -542,6 +549,11 @@ section[class$="section"] {
   justify-content: space-between;
 }
 
+.departamento-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .employees-section-container h1 {
   color: var(--white);
   font-family: var(--nunito-font);
@@ -694,6 +706,7 @@ section[class$="section"] {
 
 .footer-container {
   padding-top: 2rem;
+  width: 100vw;
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -770,7 +783,7 @@ section[class$="section"] {
 
 /* Tablet */
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .mask {
     background-size: 600%;
   }
@@ -908,5 +921,166 @@ section[class$="section"] {
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 2rem;
+  }
+}
+
+/* -- MOBILE -- */
+
+@media screen and (max-width: 915px) {
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .logo {
+    width: 45%;
+    height: 45%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .burger-mask {
+    display: block;
+  }
+
+  .burger {
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    display: flex;
+    width: 8vh;
+    height: 8vh;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .border-none {
+    border: none;
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: var(--header3);
+    text-decoration: underline;
+  }
+
+  .links-container {
+    background: var(--light-gray);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 1s ease;
+  }
+
+  .nav-open {
+    transform: translateX(-100%);
+  }
+
+  .link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .link .line {
+    display: none;
+  }
+
+  .link:hover {
+    background-color: var(--dark-gray);
+  }
+
+  .toggle .line1 {
+    transform: rotateZ(40deg) translate(21%, 800%);
+    background: white;
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotateZ(-40deg) translate(20%, -800%);
+    background: white;
+  }
+
+  .houses-section-house-card {
+    max-width: 60%;
+    width: 100%;
+  }
+
+  .houses-section-house-card img {
+    width: 100%;
+  }
+  .burger:hover {
+    cursor: pointer;
+  }
+
+  .houses-section {
+    height: 130vh;
+  }
+
+  .houses-section-container {
+    row-gap: 1rem;
+  }
+
+  .houses-section-house-card-state {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .houses-section-house-card-title {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .houses-section-house-card-title h3 {
+    transform: translateX(-100%);
+  }
+
+  .houses-section-house-card:nth-child(2) {
+    display: none;
+  }
+
+  .ceo-card {
+    display: none;
+  }
+
+  .house-section-discounts {
+    text-align: center;
+  }
+
+  .houses-section-house-card-content {
+    text-align: left;
+  }
+
+  .house-section-discounts:last-of-type {
+    margin-top: 4rem;
+  }
+
+  .houses-section-card-container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-items: center;
+    row-gap: 3rem;
+  }
+
+  .burger div {
+    background-color: var(--white);
+    width: 65%;
+    height: 2px;
+    transition: all 0.5s ease;
+  }
+
+  #footer-logo {
+    width: 100%;
+    object-fit: contain;
   }
 }
