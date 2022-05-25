@@ -336,7 +336,7 @@ section[class$="section"] {
 .links-container {
   display: flex;
   justify-content: space-between;
-  width: 40vw;
+  gap: 4rem;
   height: 100%;
   align-items: center;
 }
@@ -411,14 +411,13 @@ body {
 }
 
 .address-field {
-  width: 20vw;
   position: relative;
 }
 
 .address-field input {
   padding: 1.3rem 1rem 0.7rem 1rem;
   border: none;
-  width: 20vw;
+  width: 25vw;
   background-color: var(--white);
   border-radius: 1rem;
   color: var(--dark-gray);
@@ -1004,7 +1003,7 @@ input[type="number"] {
 
   .nav-links a {
     color: white;
-    font-size: var(--header3);
+    font-size: 4rem;
     text-decoration: underline;
   }
 
@@ -1058,7 +1057,6 @@ input[type="number"] {
   }
 
   .address-field {
-    width: 55vw;
     margin: 0;
   }
 

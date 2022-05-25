@@ -347,7 +347,7 @@ section[class$="section"] {
 .links-container {
   display: flex;
   justify-content: space-between;
-  width: 40vw;
+  gap: 4rem;
   height: 100%;
   align-items: center;
 }
@@ -842,7 +842,7 @@ div[class^="house-card-detail"] > img {
 
   .nav-links a {
     color: white;
-    font-size: var(--header3);
+    font-size: 4rem;
     text-decoration: underline;
   }
 
