@@ -407,9 +407,9 @@ section[class$="section"] {
 }
 
 #video {
-  z-index: 6;
+  z-index: 9;
   width: 100%;
-  height: 10vw;
+  background: blue;
 }
 .chat-form {
   display: none;

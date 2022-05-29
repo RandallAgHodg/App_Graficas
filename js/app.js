@@ -15,12 +15,23 @@ const supportForm = document.querySelector(".chat-form");
 
 class UI {
   enableWebCam() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      console.log("nyaa");
-      navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-        video.srcObj = stream;
-        video.play();
-      });
+    var cameraStream = null;
+    var mediaSupport = "mediaDevices" in navigator;
+
+    if (mediaSupport && null == cameraStream) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: false })
+        .then(function (mediaStream) {
+          cameraStream = mediaStream;
+          video.srcObject = mediaStream;
+          video.play();
+        })
+        .catch(function (err) {
+          console.log("unable to access camera: " + err);
+        });
+    } else {
+      alert("Your browser does not support media devices.");
+      return;
     }
   }
 
