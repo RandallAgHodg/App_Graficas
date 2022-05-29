@@ -845,6 +845,11 @@ textarea:focus + label {
     justify-content: center;
   }
 
+  .text-info-fields {
+    display: flex;
+    flex-direction: column;
+  }
+
   .logo {
     margin: 0 auto;
   }
