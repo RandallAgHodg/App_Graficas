@@ -162,11 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       formRemember.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        uiControl.printAlert(
-          "success",
-          "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo "
-        );
+        if (!document.querySelector(".alert")) {
+          uiControl.printAlert(
+            "success",
+            "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo "
+          );
+        }
       });
       break;
     default:
