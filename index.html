@@ -12,14 +12,26 @@
     <title>Bienes Raices Randall - Home</title>
     <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/home-styles.css" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
   </head>
   <body>
     <button class="info-button">Mas Información</button>
 
     <div class="mask">
       <nav class="nav-bar">
-        <img class="logo" src="imgs/Logo.png" alt="logo" />
+        <a href="/">
+          <img class="logo" src="imgs/Logo.png" alt="logo" />
+        </a>
         <ul class="links-container">
           <div class="link">
             <li class="nav-links"><a href="/">Inicio</a></li>
@@ -95,148 +107,129 @@
       <div class="houses-section-container">
         <div class="house-section-discounts">
           <h1 class="houses-section-title">Propiedades con descuento</h1>
-          <div class="carousel-houses">
-            <img
-              src="imgs/iconmonstr-angel-left-thin-240.png"
-              alt="Imagen retroceder"
-              id="previous-btn"
-              class="previous-btn"
-            />
-            <div class="houses-section-card-container">
-              <div class="houses-section-house-card">
-                <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
-                    </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state renta">
-                    <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
-                    <h3 class="renta">En renta</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="houses-section-house-card">
-                <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
-                    </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state">
-                    <img src="imgs/Money.svg" alt="billete icono" />
-                    <h3>En venta</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="houses-section-house-card">
+          <div class="container">
+            <div class="carousel">
+              <div class="nav nav-left">
                 <img
-                  src="imgs/pexels-expect-best-323780.jpg"
-                  alt="casa bonita"
+                  src="imgs/iconmonstr-angel-left-thin-240.png"
+                  alt="Imagen retroceder"
+                  id="previous-btn"
+                  class="previous-btn"
                 />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
+              </div>
+
+              <div class="carousel-content">
+                <div class="slide slide-1 houses-section-house-card">
+                  <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+                  <div class="houses-section-house-card-info">
+                    <div class="houses-section-house-card-content">
+                      <div class="houses-section-house-card-title">
+                        <div class="dot"></div>
+                        <h3>Casa Bonita</h3>
+                      </div>
+                      <h4>350m²</h4>
+                      <p>De la uca 1c arriba 1c abajo</p>
                     </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state">
-                    <img src="imgs/Money.svg" alt="billete icono" />
-                    <h3>En venta</h3>
+                    <div class="houses-section-house-card-state renta">
+                      <img
+                        src="imgs/ic_outline-sell.svg"
+                        alt="etiqueta icono"
+                      />
+                      <h3 class="renta">En renta</h3>
+                    </div>
                   </div>
                 </div>
+                <div class="slide houses-section-house-card">
+                  <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+                  <div class="houses-section-house-card-info">
+                    <div class="houses-section-house-card-content">
+                      <div class="houses-section-house-card-title">
+                        <div class="dot"></div>
+                        <h3>Casa Bonita</h3>
+                      </div>
+                      <h4>350m²</h4>
+                      <p>De la uca 1c arriba 1c abajo</p>
+                    </div>
+                    <div class="houses-section-house-card-state renta">
+                      <img
+                        src="imgs/ic_outline-sell.svg"
+                        alt="etiqueta icono"
+                      />
+                      <h3 class="renta">En renta</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide slide-1 houses-section-house-card">
+                  <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+                  <div class="houses-section-house-card-info">
+                    <div class="houses-section-house-card-content">
+                      <div class="houses-section-house-card-title">
+                        <div class="dot"></div>
+                        <h3>Casa Bonita</h3>
+                      </div>
+                      <h4>350m²</h4>
+                      <p>De la uca 1c arriba 1c abajo</p>
+                    </div>
+                    <div class="houses-section-house-card-state renta">
+                      <img
+                        src="imgs/ic_outline-sell.svg"
+                        alt="etiqueta icono"
+                      />
+                      <h3 class="renta">En renta</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide slide-1 houses-section-house-card">
+                  <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+                  <div class="houses-section-house-card-info">
+                    <div class="houses-section-house-card-content">
+                      <div class="houses-section-house-card-title">
+                        <div class="dot"></div>
+                        <h3>Casa Bonita</h3>
+                      </div>
+                      <h4>350m²</h4>
+                      <p>De la uca 1c arriba 1c abajo</p>
+                    </div>
+                    <div class="houses-section-house-card-state renta">
+                      <img
+                        src="imgs/ic_outline-sell.svg"
+                        alt="etiqueta icono"
+                      />
+                      <h3 class="renta">En renta</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide slide-1 houses-section-house-card">
+                  <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+                  <div class="houses-section-house-card-info">
+                    <div class="houses-section-house-card-content">
+                      <div class="houses-section-house-card-title">
+                        <div class="dot"></div>
+                        <h3>Casa Bonita</h3>
+                      </div>
+                      <h4>350m²</h4>
+                      <p>De la uca 1c arriba 1c abajo</p>
+                    </div>
+                    <div class="houses-section-house-card-state renta">
+                      <img
+                        src="imgs/ic_outline-sell.svg"
+                        alt="etiqueta icono"
+                      />
+                      <h3 class="renta">En renta</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nav nav-right">
+                <img
+                  src="imgs/iconmonstr-angel-right-thin-240.png"
+                  alt="Imagen avanzar"
+                  id="next-btn"
+                  class="next-btn"
+                />
               </div>
             </div>
-            <img
-              src="imgs/iconmonstr-angel-right-thin-240.png"
-              alt="Imagen avanzar"
-              id="next-btn"
-              class="next-btn"
-            />
-          </div>
-        </div>
-        <div class="house-section-discounts">
-          <h1 class="houses-section-title">Propiedades más cercanas</h1>
-          <div class="carousel-houses">
-            <img
-              src="imgs/iconmonstr-angel-left-thin-240.png"
-              alt="Imagen retroceder"
-              id="previous-btn"
-              class="previous-btn"
-            />
-            <div class="houses-section-card-container">
-              <div class="houses-section-house-card">
-                <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
-                    </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state renta">
-                    <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
-                    <h3 class="renta">En renta</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="houses-section-house-card">
-                <img src="imgs/casa-basica-minecraft.png" alt="casa bonita" />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
-                    </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state">
-                    <img src="imgs/Money.svg" alt="billete icono" />
-                    <h3>En venta</h3>
-                  </div>
-                </div>
-              </div>
-              <div class="houses-section-house-card">
-                <img
-                  src="imgs/pexels-expect-best-323780.jpg"
-                  alt="casa bonita"
-                />
-                <div class="houses-section-house-card-info">
-                  <div class="houses-section-house-card-content">
-                    <div class="houses-section-house-card-title">
-                      <div class="dot"></div>
-                      <h3>Casa Bonita</h3>
-                    </div>
-                    <h4>350m²</h4>
-                    <p>De la uca 1c arriba 1c abajo</p>
-                  </div>
-                  <div class="houses-section-house-card-state">
-                    <img src="imgs/Money.svg" alt="billete icono" />
-                    <h3>En venta</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <img
-              src="imgs/iconmonstr-angel-right-thin-240.png"
-              alt="Imagen avanzar"
-              id="next-btn"
-              class="next-btn"
-            />
           </div>
         </div>
       </div>
@@ -310,9 +303,7 @@
           <p>(505) 1234 - 5678</p>
         </div>
       </div>
-      <div class="footer-img">
-        <img src="imgs/MapaMock.jpg" alt="" />
-      </div>
+      <div id="map" class="footer-img"></div>
       <div class="social-networks-nav">
         <h2>Síguenos en</h2>
         <div class="social-network-links">

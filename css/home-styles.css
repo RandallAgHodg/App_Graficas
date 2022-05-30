@@ -312,7 +312,7 @@ body {
 
 .mask {
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent),
-    url("/imgs/pexels-sebastian-sørensen-731082.jpg");
+    url("/imgs/arriba.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200%;
@@ -440,6 +440,11 @@ section[class$="section"] {
   flex: 1;
 }
 
+#map {
+  width: 100%;
+  height: 100%;
+}
+
 .form-header {
   justify-content: space-between;
   background-color: var(--dark-brown);
@@ -505,14 +510,8 @@ section[class$="section"] {
 .houses-section {
   background-color: var(--light-peach);
   width: 100vw;
-  min-height: 100vh;
+  height: 100%;
   padding-bottom: 4rem;
-}
-
-.houses-section-container {
-  display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  height: 100vh;
 }
 
 .houses-section-title {
@@ -533,17 +532,89 @@ section[class$="section"] {
   cursor: pointer;
 }
 
+.carousel .nav img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.container {
+  padding: 4rem;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  margin: 0 auto;
+}
+
+.carousel-content {
+  position: relative;
+  display: flex;
+  margin-left: 6rem;
+  overflow: hidden;
+  transition: width 0.4s;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.slide {
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  transition: left 0.4s cubic-bezier(0.47, 0.13, 0.15, 0.89);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: white;
+  -webkit-user-select: none;
+}
+
+.nav-left {
+  left: -25px;
+}
+
+.nav-right {
+  right: -25px;
+}
+
+.carousel-arrow-icon-left {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.carousel-arrow-icon-right {
+  margin-left: 7px;
+  margin-top: 2px;
+}
+
 .houses-section-card-container {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+.house-section-discounts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .houses-section-house-card {
   background-color: var(--white);
   box-shadow: -2px 10px 11px -3px rgba(0, 0, 0, 0.34);
   gap: 1rem;
-  width: 70%;
   height: fit-content;
   padding-bottom: 2rem;
   border-bottom-left-radius: 4px;
@@ -788,7 +859,7 @@ section[class$="section"] {
   position: fixed;
   bottom: 4rem;
   right: 2rem;
-  z-index: 4;
+  z-index: 14;
   color: var(--black);
   background-color: var(--ligh-brown);
   box-shadow: -2px 10px 11px -3px rgba(0, 0, 0, 0.34);
@@ -800,15 +871,22 @@ section[class$="section"] {
 }
 
 .footer-container {
-  padding-top: 2rem;
+  padding: 2rem;
   width: 100vw;
   height: fit-content;
   display: grid;
+  z-index: 10;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   font-family: var(--montserrat-font);
   background-color: var(--dark-brown);
+  transition: all 0.3s ease-in;
+  position: fixed;
+  bottom: -100%;
 }
 
+.footer-container.activo {
+  bottom: 0%;
+}
 .footer-info {
   color: var(--white);
   display: flex;
@@ -889,7 +967,7 @@ section[class$="section"] {
     justify-content: center;
   }
 
-  .logo {
+  .nav-bar a {
     margin: 0 auto;
   }
 
@@ -914,6 +992,9 @@ section[class$="section"] {
     text-align: center;
   }
 
+  .carousel-content {
+    margin: auto 4rem;
+  }
   .hero-section-subtitle,
   .hero-section-title {
     width: 90vw;
@@ -926,15 +1007,16 @@ section[class$="section"] {
   }
 
   .houses-section-house-card {
-    width: 40vw;
+    width: 100%;
   }
 
   .houses-section-house-card-info {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0;
   }
   .houses-section-house-card > img {
-    width: 40vw;
+    width: 100%;
     object-fit: cover;
     align-self: center;
   }
@@ -1036,7 +1118,7 @@ section[class$="section"] {
     justify-content: space-around;
   }
 
-  .logo {
+  .nav-bar a {
     width: 45%;
     height: 45%;
     padding: 0;
@@ -1116,7 +1198,6 @@ section[class$="section"] {
   }
 
   .houses-section-house-card {
-    max-width: 60%;
     width: 100%;
   }
 
@@ -1147,10 +1228,6 @@ section[class$="section"] {
 
   .houses-section-house-card-title h3 {
     transform: translateX(-100%);
-  }
-
-  .houses-section-house-card:nth-child(2) {
-    display: none;
   }
 
   .ceo-card {

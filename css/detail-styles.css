@@ -405,10 +405,9 @@ section[class$="section"] {
   -moz-box-shadow: 1px 10px 14px -7px rgba(0, 0, 0, 0.51);
 }
 
-.organization-map {
+#house-map {
   width: 100vw;
   height: 30vh;
-  object-fit: cover;
 }
 
 .house-title {
@@ -481,6 +480,11 @@ section[class$="section"] {
   margin: 1rem 0;
 }
 
+#map {
+  width: 100%;
+  height: 100%;
+}
+
 div[class^="house-card-detail"] {
   display: flex;
   gap: 1rem;
@@ -535,8 +539,26 @@ div[class^="house-card-detail"] > img {
 }
 
 .house-video-section {
+  justify-content: center;
   display: flex;
   margin-bottom: 4rem;
+  flex-direction: column;
+}
+
+.house-video-section nav {
+  margin: 2rem auto;
+  height: 5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.house-video-section nav button {
+  text-align: center;
+  background-color: var(--dark-brown);
+}
+
+.house-video-section nav button:hover {
+  background-color: #a25b5b;
 }
 
 .house-video {
@@ -646,12 +668,30 @@ div[class^="house-card-detail"] > img {
 }
 
 .footer-container {
-  padding-top: 2rem;
+  padding: 2rem;
+  width: 100vw;
   height: fit-content;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   font-family: var(--montserrat-font);
   background-color: var(--dark-brown);
+  transition: all 0.3s ease-in;
+  position: fixed;
+  bottom: -100%;
+}
+
+.footer-container.activo {
+  bottom: 0%;
+}
+
+.info-button {
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+  z-index: 14;
+  color: var(--black);
+  background-color: var(--ligh-brown);
+  box-shadow: -2px 10px 11px -3px rgba(0, 0, 0, 0.34);
 }
 
 .footer-info {
@@ -731,7 +771,7 @@ div[class^="house-card-detail"] > img {
     justify-content: center;
   }
 
-  .logo {
+  .nav-bar a {
     margin: 0 auto;
   }
 
