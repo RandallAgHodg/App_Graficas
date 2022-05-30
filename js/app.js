@@ -11,6 +11,10 @@ let formRemember;
 let supportForm;
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log(
+    window.location.pathname.substring(0, 6),
+    window.location.pathname
+  );
   const uiControl = new UI();
   if (window.location.pathname.substring(0, 6) !== "/admin") {
     nav = document.querySelector(".links-container");
@@ -153,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       break;
     case "/adminRemember.html":
+    case "/adminremember":
       formRemember = document.querySelector("#rememberForm");
 
       formRemember.addEventListener("submit", (e) => {
