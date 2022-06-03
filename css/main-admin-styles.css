@@ -1,7 +1,7 @@
 /** Media Queries **/
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   height: 100%;
 }
 
@@ -9,7 +9,9 @@ html {
 *:after,
 *:before {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -40,8 +42,8 @@ img {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .header {
@@ -52,28 +54,28 @@ img {
 
 .header .nombre-sitio {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 5rem;
-          flex: 0 0 5rem;
+  -ms-flex: 0 0 5rem;
+  flex: 0 0 5rem;
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #003f8c;
 }
 
 @media only screen and (min-width: 1024px) {
   .header .nombre-sitio {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 20rem;
-            flex: 0 0 20rem;
+    -ms-flex: 0 0 20rem;
+    flex: 0 0 20rem;
   }
 }
 
 .header .nombre-sitio h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -98,11 +100,11 @@ img {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   background-color: #005b9f;
   padding: 1rem;
 }
@@ -112,16 +114,16 @@ img {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 1rem;
 }
 
 .barra .menu-izquierdo i {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.8rem;
 }
 
@@ -141,8 +143,8 @@ img {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .barra .menu-derecho .caja:hover {
@@ -150,7 +152,7 @@ img {
 }
 
 .barra .menu-derecho .caja a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -164,9 +166,9 @@ img {
 .sidebar {
   background-color: #373737;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 20rem;
-          flex: 0 0 20rem;
-  color: #FFFFFF;
+  -ms-flex: 0 0 20rem;
+  flex: 0 0 20rem;
+  color: #ffffff;
   -webkit-transition: margin-left 0.5s ease;
   transition: margin-left 0.5s ease;
 }
@@ -176,10 +178,10 @@ img {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   font-weight: bold;
 }
 
@@ -221,7 +223,7 @@ img {
 }
 
 .menu-admin .menu > li a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   padding: 0.5rem;
   -webkit-transition: padding-left 0.3s ease;
@@ -251,8 +253,8 @@ img {
 
 .contenedor-principal {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,8 +266,8 @@ i {
 
 .contenido {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   padding: 2rem;
 }
 
@@ -274,63 +276,63 @@ i {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .formulario .campo {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1rem;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 @media only screen and (min-width: 768px) {
   .formulario .campo {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 calc(50% - 1rem);
-            flex: 0 0 calc(50% - 1rem);
+    -ms-flex: 0 0 calc(50% - 1rem);
+    flex: 0 0 calc(50% - 1rem);
   }
 }
 
 .formulario .campo.expandir {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100%);
-          flex: 0 0 calc(100%);
+  -ms-flex: 0 0 calc(100%);
+  flex: 0 0 calc(100%);
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .formulario .campo.expandir label {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 12.5%;
-          flex: 0 0 12.5%;
+  -ms-flex: 0 0 12.5%;
+  flex: 0 0 12.5%;
 }
 
 .formulario .campo.expandir textarea {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .formulario .campo label {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
 }
 
 .formulario .campo input[type="text"] {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 75%;
-          flex: 0 0 75%;
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
   height: 2rem;
 }
 
@@ -339,8 +341,8 @@ i {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .formulario .campo .opciones label {
@@ -352,19 +354,19 @@ i {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .formulario .campo.enviar .boton {
   background-color: #005b9f;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: block;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
-  -webkit-transition: background-color .3s ease;
-  transition: background-color .3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .formulario .campo.enviar .boton:hover {
@@ -374,6 +376,6 @@ i {
 
 .body {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*# sourceMappingURL=app.css.map */

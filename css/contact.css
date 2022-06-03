@@ -810,6 +810,11 @@ textarea:focus + label {
   background-color: var(--ligh-brown);
   box-shadow: -2px 10px 11px -3px rgba(0, 0, 0, 0.34);
 }
+
+.info-button:hover {
+  background-color: var(--dark-brown);
+  color: var(--ligh-brown);
+}
 .footer-info h1,
 .footer-info h2,
 .footer-info h3,
