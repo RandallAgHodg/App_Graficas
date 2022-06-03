@@ -180,6 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
           .getElementById("MyClockDisplay")
           .addEventListener("onload", uiControl.showTime());
       }, 1000);
+      break;
+    case "/adminAddHouses.html":
+    case "/adminAddhouses":
+      uiControl.toggleSideMenu();
+
+      uiControl.openCardInfo();
+      break;
     default:
       break;
   }
@@ -218,6 +225,42 @@ class UI {
 
       this.cameraStream = null;
     }
+  }
+
+  openCardInfo() {
+    const card = document.querySelectorAll(".house-card");
+    card.forEach((card) => {
+      card.addEventListener("click", () => {
+        const isVideo = document.querySelector(".video-container");
+        const isButtons = document.querySelector(".action-btns-container");
+        if (isVideo || isButtons) {
+          isVideo.remove();
+          isButtons.remove();
+        }
+        const videoContainer = document.createElement("div");
+        const buttonsContainer = document.createElement("div");
+        const video = document.createElement("video");
+        const acceptBtn = document.createElement("button");
+        const rejectBtn = document.createElement("button");
+        video.src = "/videos/production ID_3770033.mp4";
+        video.style.width = "100%";
+        video.controls = true;
+        video.play();
+        videoContainer.classList.add("video-container");
+        videoContainer.appendChild(video);
+        buttonsContainer.classList.add("action-btns-container");
+        buttonsContainer.appendChild(acceptBtn);
+        buttonsContainer.appendChild(rejectBtn);
+        acceptBtn.innerText = "Aceptar";
+        acceptBtn.style.backgroundColor = "green";
+        acceptBtn.classList.add("action-btn");
+        rejectBtn.innerText = "rechazar";
+        rejectBtn.style.backgroundColor = "crimson";
+        rejectBtn.classList.add("action-btn");
+        card.appendChild(videoContainer);
+        card.appendChild(buttonsContainer);
+      });
+    });
   }
 
   configureBackgroundHeroImage() {
