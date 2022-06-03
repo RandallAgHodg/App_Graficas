@@ -120,7 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
 
     case "/detailHouse.html":
+    case "/detailHouse":
     case "/detailHouse.html".toLowerCase():
+    case "/detailHouse".toLowerCase():
       var map = L.map("house-map").setView([12.12976, -86.26684], 16);
 
       var tiles = L.tileLayer(
@@ -188,13 +190,29 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/adminAddHouses":
     case "/adminAddApartments.html":
     case "/adminAddApartments":
+    case "/adminCrudHouses.html":
+    case "/adminCrudHouses":
     case "/adminAddHouses.html".toLowerCase():
     case "/adminAddHouses".toLowerCase():
     case "/adminAddApartments.html".toLowerCase():
     case "/adminAddApartments".toLowerCase():
+    case "/adminCrudHouses.html".toLowerCase():
+    case "/adminCrudHouses".toLowerCase():
       uiControl.toggleSideMenu();
+      console.log("Nyaa");
+      uiControl.openCardInfo(
+        window.location.pathname === "admincrudhouses" ||
+          window.location.pathname === "/adminCrudHouses.html" ||
+          window.location.pathname === "admincrudapartments"
+      );
 
-      uiControl.openCardInfo();
+      if (document.querySelector(".video-container")) {
+        console.log("brrr");
+        const buttonAccept = document.querySelector(".edit-btn");
+        buttonAccept.addEventListener("click", () => {
+          location.href = "/adminEditHouses.html";
+        });
+      }
       break;
     default:
       break;
@@ -236,7 +254,11 @@ class UI {
     }
   }
 
-  openCardInfo() {
+  redirectEditAdminForm() {
+    console.log("Nyaa");
+  }
+
+  openCardInfo(isAdmin) {
     const card = document.querySelectorAll(".house-card");
     card.forEach((card) => {
       card.addEventListener("click", () => {
@@ -261,10 +283,20 @@ class UI {
         buttonsContainer.classList.add("action-btns-container");
         buttonsContainer.appendChild(acceptBtn);
         buttonsContainer.appendChild(rejectBtn);
-        acceptBtn.innerText = "Aceptar";
+        if (isAdmin) {
+          acceptBtn.innerText = "Editar";
+          acceptBtn.classList.add("edit-btn");
+          rejectBtn.innerText = "Eliminar";
+          acceptBtn.classList.add("reject-btn");
+          acceptBtn.addEventListener("click", () => {
+            location.href = "/adminEditHouses.html";
+          });
+        } else {
+          acceptBtn.innerText = "Aceptar";
+          rejectBtn.innerText = "rechazar";
+        }
         acceptBtn.style.backgroundColor = "green";
         acceptBtn.classList.add("action-btn");
-        rejectBtn.innerText = "rechazar";
         rejectBtn.style.backgroundColor = "crimson";
         rejectBtn.classList.add("action-btn");
         card.appendChild(videoContainer);
