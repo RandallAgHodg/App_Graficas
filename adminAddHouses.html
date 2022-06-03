@@ -7,7 +7,7 @@
     <title>Bienes Raices Randall - admin</title>
     <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="./css/main-admin-styles.css" />
+    <link rel="stylesheet" href="./css/admin-add-houses-styles.css" />
   </head>
   <body>
     <div class="pagina">
@@ -96,10 +96,64 @@
         </aside>
 
         <div class="contenido">
-          <div class="logo-main">
-            <img src="/imgs/Logo.png" alt="Logo" />
-          </div>
-          <div id="MyClockDisplay" class="clock"></div>
+          <section class="search-form-section">
+            <div class="search-container">
+              <form class="search-form" id="search-form">
+                <div class="fields-form">
+                  <div class="address-field">
+                    <input type="text" class="search" id="search" />
+                    <label for="search">Buscar...</label>
+                    <img
+                      src="/imgs/Vector.png"
+                      alt="search icon"
+                      class="search-img"
+                    />
+                  </div>
+
+                  <div class="discounts-field">
+                    <input
+                      type="checkbox"
+                      name="discounts-input"
+                      class="discounts-input"
+                      id="balcones-input"
+                    />
+                    <label for="balcones-input"
+                      >Ordenar por precio ascendéntemente</label
+                    >
+                  </div>
+                </div>
+                <div class="checkbox-fields">
+                  <div class="discounts-field">
+                    <input
+                      type="checkbox"
+                      name="discounts-input"
+                      class="discounts-input"
+                      id="discounts-input"
+                    />
+                    <label for="discounts-input">Solo con descuentos</label>
+                  </div>
+                  <div class="discounts-field">
+                    <input
+                      type="checkbox"
+                      name="discounts-input"
+                      class="discounts-input"
+                      id="balcones-input"
+                    />
+                    <label for="balcones-input">Solo con balcones</label>
+                  </div>
+                  <div class="discounts-field">
+                    <input
+                      type="checkbox"
+                      name="discounts-input"
+                      class="discounts-input"
+                      id="pool-input"
+                    />
+                    <label for="pool-input">Solo con Piscinas</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
         </div>
       </main>
     </div>

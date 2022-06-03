@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document
           .getElementById("MyClockDisplay")
           .addEventListener("onload", uiControl.showTime());
-      }, 100);
+      }, 1000);
     default:
       break;
   }
