@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
 
     case "/detailHouse.html":
+    case "/detailHouse.html".toLowerCase():
       var map = L.map("house-map").setView([12.12976, -86.26684], 16);
 
       var tiles = L.tileLayer(
@@ -174,6 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "/adminMain.html":
     case "/adminMain":
+    case "/adminMain.html".toLowerCase():
+    case "/adminMain".toLowerCase():
       uiControl.toggleSideMenu();
       setInterval(() => {
         document
@@ -182,7 +185,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
       break;
     case "/adminAddHouses.html":
-    case "/adminAddhouses":
+    case "/adminAddHouses":
+    case "/adminAddApartments.html":
+    case "/adminAddApartments":
+    case "/adminAddHouses.html".toLowerCase():
+    case "/adminAddHouses".toLowerCase():
+    case "/adminAddApartments.html".toLowerCase():
+    case "/adminAddApartments".toLowerCase():
       uiControl.toggleSideMenu();
 
       uiControl.openCardInfo();
@@ -236,6 +245,7 @@ class UI {
         if (isVideo || isButtons) {
           isVideo.remove();
           isButtons.remove();
+          return;
         }
         const videoContainer = document.createElement("div");
         const buttonsContainer = document.createElement("div");
