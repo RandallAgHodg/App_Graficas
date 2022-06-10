@@ -100,6 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       break;
 
+    case "/houses.html":
+    case "/houses":
+    case "/apartments.html":
+    case "/apartments":
+      uiControl.showAdvancedSearchFields();
+      break;
+
     case "/contact.html":
       tabs = document.querySelector(".wrapper");
       tabButton = document.querySelectorAll(".tab-button");
@@ -339,6 +346,14 @@ class UI {
     closeModalBtn.addEventListener("click", () => {
       document.querySelector(".modal").style.display = "none";
       document.querySelector(".mask").style.filter = "blur(0)";
+    });
+  }
+
+  showAdvancedSearchFields() {
+    const container = document.querySelector("#advanced-search-fields");
+    const button = document.querySelector(".advanced-search-btn");
+    button.addEventListener("click", () => {
+      container.classList.toggle("advanced-search-fields");
     });
   }
 

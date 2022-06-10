@@ -106,7 +106,7 @@
               <label for="discounts-input">Solo con descuentos</label>
             </div>
           </div>
-          <div class="advanced-search-fields hidden">
+          <div id="advanced-search-fields" class="hidden">
             <div class="pools-field">
               <div>
                 <label for="pools-input">Piscinas</label>
@@ -197,11 +197,21 @@
               />
               <label for="terraza-input">Con terraza</label>
             </div>
+
+            <div class="discounts-field">
+              <input
+                type="checkbox"
+                name="discounts-input"
+                class="discounts-input"
+                id="rent-input"
+              />
+              <label for="rent-input">En renta</label>
+            </div>
           </div>
           <div class="search-btn">
             <input type="submit" value="Buscar" class="submit-btn" />
 
-            <h2>Busqueda avanzada</h2>
+            <h2 class="advanced-search-btn">Busqueda avanzada</h2>
           </div>
         </form>
       </div>

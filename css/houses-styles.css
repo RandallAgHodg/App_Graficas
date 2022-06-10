@@ -574,10 +574,10 @@ input[type="range"]::-ms-thumb {
   text-decoration: underline;
   cursor: pointer;
 }
-/* 
+
 .hidden {
   display: none;
-} */
+}
 
 .pool-field {
   width: 10vw;
@@ -728,7 +728,7 @@ input[type="number"] {
 .advanced-search-fields {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: end;
 }
 
