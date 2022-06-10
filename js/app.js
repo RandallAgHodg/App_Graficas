@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.pathname
   );
   const uiControl = new UI();
+  if (document.querySelector(".address-field input"))
+    uiControl.validateInputs();
   if (window.location.pathname.substring(0, 6) !== "/admin") {
     nav = document.querySelector(".links-container");
     burger = document.querySelector(".burger");
@@ -67,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/":
     case "/index.html":
     case "/index.html":
+      uiControl.initCountDown();
+      uiControl.closeModal();
       uiControl.configureBackgroundHeroImage();
       uiControl.configureCarousel();
       let video;
@@ -328,6 +332,85 @@ class UI {
         tiempo++;
       }
     }, 100);
+  }
+
+  closeModal() {
+    const closeModalBtn = document.querySelector("#close-modal-btn");
+    closeModalBtn.addEventListener("click", () => {
+      document.querySelector(".modal").style.display = "none";
+      document.querySelector(".mask").style.filter = "blur(0)";
+    });
+  }
+
+  validateInputs() {
+    const input = document.querySelectorAll(".address-field input");
+    const textarea = document.querySelectorAll(".address-field textarea");
+    input.forEach((element) => {
+      element.addEventListener("change", (e) => {
+        console.log(e);
+        const label = e.target.nextElementSibling;
+        console.log(e.target.value);
+        if (e.target.value.length > 0) {
+          label.style.outline = "none";
+          label.style.fontSize = "0.6rem";
+          label.style.top = "0.5rem";
+        } else {
+          label.style.fontSize = "1.7rem";
+          label.style.top = "1.1rem";
+        }
+      });
+    });
+
+    textarea.forEach((element) => {
+      element.addEventListener("change", (e) => {
+        console.log(e);
+        const label = e.target.nextElementSibling;
+        console.log(e.target.value);
+        if (e.target.value.length > 0) {
+          label.style.outline = "none";
+          label.style.fontSize = "0.6rem";
+          label.style.top = "0.5rem";
+        } else {
+          label.style.fontSize = "1.7rem";
+          label.style.top = "1.1rem";
+        }
+      });
+    });
+  }
+
+  initCountDown() {
+    let date = new Date("Jun 16, 2022 12:00:00");
+
+    let CountDay = document.getElementById("Days");
+    let CountHour = document.getElementById("Hours");
+    let CountMinutes = document.getElementById("Minutes");
+    let CountSeconds = document.getElementById("Seconds");
+    let Int = setInterval(UpdateTime, 1);
+
+    function UpdateTime() {
+      let Now = new Date().getTime();
+      let distance = date - Now;
+
+      CountDay.innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      CountHour.innerHTML = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+
+      CountMinutes.innerHTML = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+      );
+
+      CountSeconds.innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        clearInterval(Int);
+        document.getElementById("Days").innerHTML = "this";
+        document.getElementById("Hours").innerHTML = "pen";
+        document.getElementById("Minutes").innerHTML = "is";
+        document.getElementById("Seconds").innerHTML = "Exp";
+      }
+    }
   }
 
   configureCarousel() {

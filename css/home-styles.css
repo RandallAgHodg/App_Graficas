@@ -308,11 +308,14 @@ button {
 
 body {
   overflow-x: hidden;
+  max-height: 100vh;
 }
 
 .mask {
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent),
     url("/imgs/arriba.jpg");
+
+  filter: blur(8px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200%;
@@ -359,8 +362,32 @@ section[class$="section"] {
   align-items: center;
 }
 
+.modal {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  position: absolute;
+  z-index: 5;
+  top: 40%;
+  width: 30vw;
+  left: 40%;
+  padding: 1rem 5rem 5rem 5rem;
+  background-color: var(--white);
+}
+
+#close-modal-btn {
+  width: 3rem;
+  align-self: flex-end;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.modal .houses-section-house-card {
+  width: 100%;
+}
+
 .nav-links {
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: 500;
   text-align: center;
 }
@@ -825,6 +852,57 @@ section[class$="section"] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.countDown {
+  background-color: #011327;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.item {
+  background-color: #02244a;
+  color: white;
+
+  font-size: 1vw;
+  text-align: center;
+  font-weight: 100;
+  font-family: var(--roboto-font);
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.text {
+  height: 5vw;
+  text-align: left;
+  font-size: 1vw;
+  font-family: var(--roboto-font);
+  font-weight: 200;
+  color: white;
+}
+.column {
+  background-color: #02244a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2vw;
+  width: 100%;
+  margin: 0.5vw;
+}
+
+.discount-text {
+  color: crimson;
+  font-family: var(--montserrat-font);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+.discount-text span {
+  text-decoration: underline;
 }
 
 .ceo-img {
