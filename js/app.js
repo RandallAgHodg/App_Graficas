@@ -202,7 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/adminAddApartments.html":
     case "/adminAddApartments":
     case "/adminCrudHouses.html":
-    case "/adminCrudHouses":
+    case "/admincrudhouses":
+    case "/adminCrudApartments.html":
+    case "/admincrudapartments":
     case "/adminAddHouses.html".toLowerCase():
     case "/adminAddHouses".toLowerCase():
     case "/adminAddApartments.html".toLowerCase():
@@ -210,11 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/adminCrudHouses.html".toLowerCase():
     case "/adminCrudHouses".toLowerCase():
       uiControl.toggleSideMenu();
-      console.log("Nyaa");
       uiControl.openCardInfo(
         window.location.pathname === "admincrudhouses" ||
           window.location.pathname === "/adminCrudHouses.html" ||
-          window.location.pathname === "admincrudapartments"
+          window.location.pathname === "admincrudapartments" ||
+          window.location.pathname === "/adminCrudApartments.html"
       );
 
       if (document.querySelector(".video-container")) {
@@ -300,7 +302,7 @@ class UI {
           rejectBtn.innerText = "Eliminar";
           acceptBtn.classList.add("reject-btn");
           acceptBtn.addEventListener("click", () => {
-            location.href = "/adminEditHouses.html";
+            location.href = "/adminEditProperty.html";
           });
         } else {
           acceptBtn.innerText = "Aceptar";
