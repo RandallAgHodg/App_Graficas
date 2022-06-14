@@ -679,6 +679,13 @@ section[class$="section"] {
     justify-content: space-around;
     align-items: center;
   }
+  .hero-info {
+    transform: translate(0);
+  }
+
+  .mask {
+    height: 100%;
+  }
 
   .organization-info {
     display: flex;
@@ -759,13 +766,26 @@ section[class$="section"] {
     position: relative;
     z-index: 3;
     cursor: pointer;
-    display: flex;
-    width: 8vh;
-    height: 8vh;
-    flex-direction: column;
-    border: 1px solid var(--white);
-    justify-content: space-evenly;
+    display: block;
     align-items: center;
+  }
+
+  .toggle .line1 {
+    transform: rotateZ(45deg) translateY(300%);
+    background: white;
+  }
+
+  .toggle .line3 {
+    transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
+  }
+
+  .burger div {
+    padding: 0.2rem 2rem;
+    background: var(--white);
+    margin: 0.5rem 0rem;
+    display: block;
+    transition: all 0.5s ease;
   }
 
   .border-none {
@@ -810,23 +830,8 @@ section[class$="section"] {
     background-color: var(--dark-gray);
   }
 
-  .toggle .line1 {
-    transform: rotateZ(40deg) translate(21%, 800%);
-    background: white;
-  }
   .toggle .line2 {
     opacity: 0;
-  }
-  .toggle .line3 {
-    transform: rotateZ(-40deg) translate(20%, -800%);
-    background: white;
-  }
-
-  .burger div {
-    background-color: var(--white);
-    width: 65%;
-    height: 2px;
-    transition: all 0.5s ease;
   }
 
   #footer-logo {

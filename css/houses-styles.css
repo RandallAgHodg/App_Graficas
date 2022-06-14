@@ -979,6 +979,8 @@ input[type="number"] {
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 2rem;
+    bottom: 0;
+    position: inherit;
   }
 }
 
@@ -1000,18 +1002,30 @@ input[type="number"] {
   .burger-mask {
     display: block;
   }
-
   .burger {
     position: relative;
     z-index: 3;
     cursor: pointer;
-    display: flex;
-    width: 8vh;
-    height: 8vh;
-    flex-direction: column;
-    border: 1px solid var(--white);
-    justify-content: space-evenly;
+    display: block;
     align-items: center;
+  }
+
+  .toggle .line1 {
+    transform: rotateZ(45deg) translateY(300%);
+    background: white;
+  }
+
+  .toggle .line3 {
+    transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
+  }
+
+  .burger div {
+    padding: 0.2rem 2rem;
+    background: var(--white);
+    margin: 0.5rem 0rem;
+    display: block;
+    transition: all 0.5s ease;
   }
 
   .border-none {
@@ -1096,17 +1110,8 @@ input[type="number"] {
   .link:hover {
     background-color: var(--dark-gray);
   }
-
-  .toggle .line1 {
-    transform: rotateZ(40deg) translate(21%, 800%);
-    background: white;
-  }
   .toggle .line2 {
     opacity: 0;
-  }
-  .toggle .line3 {
-    transform: rotateZ(-40deg) translate(20%, -800%);
-    background: white;
   }
 
   .houses-container {
@@ -1171,13 +1176,6 @@ input[type="number"] {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     justify-items: center;
     row-gap: 3rem;
-  }
-
-  .burger div {
-    background-color: var(--white);
-    width: 65%;
-    height: 2px;
-    transition: all 0.5s ease;
   }
 
   #footer-logo {

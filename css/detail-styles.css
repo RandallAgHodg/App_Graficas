@@ -582,8 +582,10 @@ div[class^="house-card-detail"] > img {
 
 .house-video-section nav {
   margin: 2rem auto;
-  height: 5rem;
+  justify-content: center;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -646,7 +648,6 @@ div[class^="house-card-detail"] > img {
   font-family: var(--nunito-font);
   border-radius: 1rem;
   width: 28vw;
-  height: 80vh;
   padding: 2rem 2rem 6rem 2rem;
   box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: -1px 0px 11px 1px rgba(0, 0, 0, 0.48);
@@ -830,6 +831,10 @@ div[class^="house-card-detail"] > img {
     padding-bottom: 4rem;
   }
 
+  .info-button {
+    display: none;
+  }
+
   .form-content {
     transform: translateX(0);
     text-align: center;
@@ -850,6 +855,16 @@ div[class^="house-card-detail"] > img {
     width: 70vw;
   }
 
+  .discount-info {
+    border-radius: 50%;
+    width: 8vh;
+    height: 8vh;
+  }
+
+  .discount-text {
+    font-size: 2rem;
+  }
+
   #footer-logo {
     width: 100%;
     object-fit: contain;
@@ -863,6 +878,8 @@ div[class^="house-card-detail"] > img {
     display: grid;
     grid-template-columns: 1fr;
     padding-bottom: 2rem;
+    position: inherit;
+    bottom: 0;
   }
 }
 
@@ -902,13 +919,19 @@ div[class^="house-card-detail"] > img {
     position: relative;
     z-index: 3;
     cursor: pointer;
-    display: flex;
-    width: 8vh;
-    height: 8vh;
-    flex-direction: column;
+    display: block;
     border: 1px solid var(--white);
-    justify-content: space-evenly;
     align-items: center;
+  }
+
+  .toggle .line1 {
+    transform: rotateZ(45deg) translateY(300%);
+    background: white;
+  }
+
+  .toggle .line3 {
+    transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
   }
 
   .border-none {
@@ -926,7 +949,7 @@ div[class^="house-card-detail"] > img {
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 3;
+    z-index: 6000;
     top: 0;
     left: 100%;
     flex-direction: column;
@@ -954,16 +977,8 @@ div[class^="house-card-detail"] > img {
     background-color: var(--dark-gray);
   }
 
-  .toggle .line1 {
-    transform: rotateZ(40deg) translate(21%, 800%);
-    background: white;
-  }
   .toggle .line2 {
     opacity: 0;
-  }
-  .toggle .line3 {
-    transform: rotateZ(-40deg) translate(20%, -800%);
-    background: white;
   }
 
   .burger div {
@@ -986,6 +1001,10 @@ div[class^="house-card-detail"] > img {
     width: 75%;
     font-size: 2rem;
     text-align: center;
+  }
+  .input-btn-container {
+    width: auto;
+    height: auto;
   }
 
   #footer-logo {
