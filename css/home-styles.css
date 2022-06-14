@@ -368,7 +368,7 @@ section[class$="section"] {
   flex-direction: column;
   position: absolute;
   z-index: 5;
-  top: 40%;
+  top: 20%;
   width: 30vw;
   left: 40%;
   padding: 1rem 5rem 5rem 5rem;
@@ -857,7 +857,7 @@ section[class$="section"] {
 .house-card-state-discount {
   color: var(--red);
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 2.4rem;
   text-align: center;
   width: 100%;
 }
@@ -1153,11 +1153,13 @@ section[class$="section"] {
 
   .employees-container {
     margin-bottom: 2rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
   }
 
   .agents-cards {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

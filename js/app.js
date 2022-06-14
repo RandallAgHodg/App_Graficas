@@ -480,7 +480,8 @@ class UI {
     window.addEventListener("resize", setScreenSize);
 
     function setScreenSize() {
-      if (window.innerWidth >= 1020) {
+      if (window.innerWidth > 1024) {
+        console.log(window.innerWidth);
         carouselDisplaying = 3;
       } else {
         carouselDisplaying = 1;

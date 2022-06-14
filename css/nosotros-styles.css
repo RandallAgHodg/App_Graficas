@@ -659,6 +659,10 @@ section[class$="section"] {
     display: none;
   }
 
+  .hero-info {
+    transform: translate(0);
+  }
+
   #footer-logo {
     width: 100%;
     object-fit: contain;
@@ -678,9 +682,6 @@ section[class$="section"] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-  }
-  .hero-info {
-    transform: translate(0);
   }
 
   .mask {
