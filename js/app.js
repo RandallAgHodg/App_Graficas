@@ -172,6 +172,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       break;
+    case "/adminlogin":
+    case "/adminLogin.html":
+      document
+        .querySelector("#registerForm input[type=submit]")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          location.href = "adminMain.html";
+        });
+      break;
     case "/adminRemember.html":
     case "/adminremember":
       formRemember = document.querySelector("#rememberForm");
@@ -200,32 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/adminAddHouses.html":
     case "/adminAddHouses":
     case "/adminAddApartments.html":
-    case "/adminAddApartments":
+    case "/adminaddapartments":
     case "/adminCrudHouses.html":
     case "/admincrudhouses":
     case "/adminCrudApartments.html":
     case "/admincrudapartments":
-    case "/adminAddHouses.html".toLowerCase():
-    case "/adminAddHouses".toLowerCase():
-    case "/adminAddApartments.html".toLowerCase():
-    case "/adminAddApartments".toLowerCase():
-    case "/adminCrudHouses.html".toLowerCase():
-    case "/adminCrudHouses".toLowerCase():
       uiControl.toggleSideMenu();
       uiControl.openCardInfo(
-        window.location.pathname === "admincrudhouses" ||
+        window.location.pathname === "/admincrudhouses" ||
           window.location.pathname === "/adminCrudHouses.html" ||
-          window.location.pathname === "admincrudapartments" ||
+          window.location.pathname === "/admincrudapartments" ||
           window.location.pathname === "/adminCrudApartments.html"
       );
-
-      if (document.querySelector(".video-container")) {
-        console.log("brrr");
-        const buttonAccept = document.querySelector(".edit-btn");
-        buttonAccept.addEventListener("click", () => {
-          location.href = "/adminEditHouses.html";
-        });
-      }
       break;
     default:
       break;
