@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
       break;
     case "/adminAddHouses.html":
-    case "/adminAddHouses":
+    case "/adminaddhouses":
     case "/adminAddApartments.html":
     case "/adminaddapartments":
     case "/adminCrudHouses.html":
