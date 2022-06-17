@@ -468,7 +468,8 @@ textarea:focus + label {
 .number-input-container {
   display: grid;
   width: 8vw;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--dark-brown);
 }
 
 .number-input-container > label {
@@ -493,15 +494,15 @@ textarea:focus + label {
   -webkit-border-radius: 0px;
   -moz-appearance: none;
   appearance: none;
+  width: 100%;
+  font-size: 1.4rem;
   position: relative;
   height: 3rem;
-  width: 5vw;
   background-color: #f9f9f9;
   border: none;
   border-left: 1px solid rgba(0, 0, 0, 0);
   border-right: 1px solid rgba(0, 0, 0, 0);
   border-radius: none;
-  font-size: 1.6rem;
   line-height: 24px;
   text-align: center;
   transition: all 0.2s ease-out;
@@ -525,12 +526,10 @@ textarea:focus + label {
 
 .number-input-container > button {
   position: relative;
-  height: 3rem;
-  width: 3rem;
   margin-top: 32px;
   padding: 12px 16px;
   background-color: var(--brown);
-  border: 1px solid var(--ligh-brown);
+  border: 1px solid var(--dark-brown);
   border-radius: none;
   transition: all 0.1s ease-out;
   cursor: pointer;
