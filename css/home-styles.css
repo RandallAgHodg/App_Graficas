@@ -463,6 +463,13 @@ section[class$="section"] {
   padding: 1rem;
 }
 
+#support-form-img {
+  transition: all 0.3s ease-in-out;
+}
+#support-form-img:hover {
+  transform: rotate(25deg);
+}
+
 .form-control input[type="text"] {
   flex: 1;
 }

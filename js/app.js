@@ -11,10 +11,6 @@ let formRemember;
 let supportForm;
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(
-    window.location.pathname.substring(0, 6),
-    window.location.pathname
-  );
   const uiControl = new UI();
   if (document.querySelector(".address-field input"))
     uiControl.validateInputs();
@@ -69,10 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/":
     case "/index.html":
     case "/index.html":
+      document
+        .querySelector("body")
+        .addEventListener("wheel", uiControl.preventScroll, { passive: false });
       uiControl.initCountDown();
       uiControl.closeModal();
       uiControl.configureBackgroundHeroImage();
       uiControl.configureCarousel();
+      document.querySelector(".info-button").addEventListener("click", () => {
+        location.href = "./contact.html";
+      });
       let video;
       let canvas;
       let context;
@@ -243,7 +245,7 @@ class UI {
           video.play();
         })
         .catch(function (err) {
-          console.log("unable to access camera: " + err);
+          alert("unable to access camera: " + err);
         });
     } else {
       alert("Su navegador no soporta el dispositivo de camara.");
@@ -260,10 +262,6 @@ class UI {
 
       this.cameraStream = null;
     }
-  }
-
-  redirectEditAdminForm() {
-    console.log("Nyaa");
   }
 
   openCardInfo(isAdmin) {
@@ -391,7 +389,7 @@ class UI {
   }
 
   initCountDown() {
-    let date = new Date("Jun 16, 2022 12:00:00");
+    let date = new Date("Jun 19, 2022 12:00:00");
 
     let CountDay = document.getElementById("Days");
     let CountHour = document.getElementById("Hours");
@@ -476,7 +474,6 @@ class UI {
 
     function setScreenSize() {
       if (window.innerWidth > 1024) {
-        console.log(window.innerWidth);
         carouselDisplaying = 3;
       } else {
         carouselDisplaying = 1;
@@ -667,6 +664,13 @@ class UI {
     setTimeout(showTime, 1000);
   }
 
+  preventScroll(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+  }
+
   printAlert(type, message) {
     const messageContainer = document.createElement("h1");
     messageContainer.classList.add("alert");
@@ -684,5 +688,24 @@ class UI {
 }
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
+  const ui = new UI();
+  if (document.querySelector(".modal")) {
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.parentNode.classList.contains("modal") ||
+      e.target.parentNode.parentNode.classList.contains("modal") ||
+      e.target.parentNode.parentNode.parentNode.classList.contains("modal")
+    ) {
+      console.log(e);
+      return;
+    }
+    const modal = document.querySelector(".modal");
+    modal.remove();
+    document.querySelector(".mask").style.filter = "blur(0px)";
+    document
+      .querySelector("body")
+      .removeEventListener("wheel", ui.preventScroll, {
+        passive: false,
+      });
+  }
 });
