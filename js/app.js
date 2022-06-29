@@ -12,6 +12,7 @@ let supportForm;
 
 document.addEventListener("DOMContentLoaded", () => {
   const uiControl = new UI();
+  window.moveTo(0, 0);
   if (document.querySelector(".address-field input"))
     uiControl.validateInputs();
   if (window.location.pathname.substring(0, 6) !== "/admin") {
@@ -65,16 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/":
     case "/index.html":
     case "/index.html":
+      uiControl.createModal();
       document
         .querySelector("body")
         .addEventListener("wheel", uiControl.preventScroll, { passive: false });
+      setInterval(() => {
+        if (!document.querySelector(".modal")) uiControl.createModal();
+      }, 10800000);
+      if (document.querySelector(".modal")) uiControl.closeModal();
       uiControl.initCountDown();
-      uiControl.closeModal();
       uiControl.configureBackgroundHeroImage();
       uiControl.configureCarousel();
-      document.querySelector(".info-button").addEventListener("click", () => {
-        location.href = "./contact.html";
-      });
+      document
+        .querySelector(".hero-section-button")
+        .addEventListener("click", () => {
+          location.href = "./contact.html";
+        });
       let video;
       let canvas;
       let context;
@@ -113,6 +120,13 @@ document.addEventListener("DOMContentLoaded", () => {
       tabs = document.querySelector(".wrapper");
       tabButton = document.querySelectorAll(".tab-button");
       contents = document.querySelectorAll(".content");
+      const labels = document.querySelectorAll("label");
+      const resetButtons = document.querySelectorAll("input[type=reset]");
+      resetButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          console.log(e);
+        });
+      });
 
       tabs.onclick = (e) => {
         const id = e.target.dataset.id;
@@ -336,11 +350,88 @@ class UI {
     }, 100);
   }
 
+  createModal() {
+    const body = document.querySelector("body");
+    const modal = document.createElement("div");
+    const closeBtn = document.createElement("img");
+    const houseCardContainer = document.createElement("div");
+    const houseImg = document.createElement("img");
+    const houseCardInfo = document.createElement("div");
+    const houseCardContent = document.createElement("div");
+    const houseCardTitle = document.createElement("div");
+    const dot = document.createElement("div");
+    const houseTitle = document.createElement("h3");
+    const houseArea = document.createElement("h4");
+    const houseAddress = document.createElement("p");
+    const houseInfoState = document.querySelector("div");
+    const houseStateImg = document.createElement("img");
+    const houseState = document.createElement("h3");
+    const houseDiscount = document.createElement("h4");
+
+    modal.classList.add("modal");
+    body.appendChild(modal);
+
+    modal.innerHTML = `
+    <img
+      id="close-modal-btn"
+      src="imgs/iconmonstr-x-mark-thin-240.png"
+      alt="Close icon"
+    />
+    <div class="houses-section-house-card">
+      <img src="imgs/casa-humilde.jpg" alt="casa bonita" />
+      <div class="houses-section-house-card-info">
+        <div class="houses-section-house-card-content">
+          <div class="houses-section-house-card-title">
+            <div class="dot"></div>
+            <h3>Casa Bonita</h3>
+          </div>
+          <h4>350m²</h4>
+          <p>De la uca 1c arriba 1c abajo</p>
+        </div>
+        <div class="houses-section-house-card-state renta">
+          <img src="imgs/ic_outline-sell.svg" alt="etiqueta icono" />
+          <h3 class="renta">En renta</h3>
+          <h4 class="house-card-state-discount">50%</h4>
+        </div>
+      </div>
+    </div>
+    <div class="countDown">
+      <div class="column">
+        <div id="Days" class="item">0</div>
+        <div class="text" id="textDays">Dias</div>
+      </div>
+
+      <div class="column">
+        <div id="Hours" class="item">0</div>
+        <div class="text" id="textHours">Horas</div>
+      </div>
+
+      <div class="column">
+        <div id="Minutes" class="item">0</div>
+        <div class="text" id="textDays">Minutos</div>
+      </div>
+      <div class="column">
+        <div id="Seconds" class="item">0</div>
+        <div class="text" id="textDays">Segundos</div>
+      </div>
+    </div>
+    <h1 class="discount-text">
+      !!!!Adquiere esta casa en las colinas con un <span>50%</span> de
+      descuento antes de que la oferta acabe!!!
+    </h1>`;
+  }
+
   closeModal() {
     const closeModalBtn = document.querySelector("#close-modal-btn");
     closeModalBtn.addEventListener("click", () => {
       document.querySelector(".modal").style.display = "none";
       document.querySelector(".mask").style.filter = "blur(0)";
+
+      document
+        .querySelector("body")
+        .removeEventListener("wheel", this.preventScroll, {
+          passive: false,
+        });
     });
   }
 
@@ -386,10 +477,45 @@ class UI {
         }
       });
     });
+
+    const resetBtns = document.querySelectorAll("input[type=reset]");
+    resetBtns.forEach((button) => {
+      button.addEventListener("click", () => {
+        input.forEach((element) => {
+          console.log(element);
+          const label = element.target.nextElementSibling;
+          console.log(element.target.value);
+          if (element.target.value.length > 0) {
+            label.style.outline = "none";
+            label.style.fontSize = "0.6rem";
+            label.style.top = "0.5rem";
+          } else {
+            label.style.fontSize = "1.7rem";
+            label.style.top = "1.1rem";
+          }
+        });
+
+        textarea.forEach((element) => {
+          element.addEventListener("change", (e) => {
+            console.log(e);
+            const label = e.target.nextElementSibling;
+            console.log(e.target.value);
+            if (e.target.value.length > 0) {
+              label.style.outline = "none";
+              label.style.fontSize = "0.6rem";
+              label.style.top = "0.5rem";
+            } else {
+              label.style.fontSize = "1.7rem";
+              label.style.top = "1.1rem";
+            }
+          });
+        });
+      });
+    });
   }
 
   initCountDown() {
-    let date = new Date("Jun 19, 2022 12:00:00");
+    let date = new Date("Jul 5, 2022 12:00:00");
 
     let CountDay = document.getElementById("Days");
     let CountHour = document.getElementById("Hours");

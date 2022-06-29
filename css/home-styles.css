@@ -615,6 +615,10 @@ section[class$="section"] {
   -webkit-user-select: none;
 }
 
+.none {
+  display: none !important;
+}
+
 .nav-left {
   left: -25px;
 }

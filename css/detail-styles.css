@@ -638,6 +638,7 @@ div[class^="house-card-detail"] > img {
 
 .form-container {
   display: grid;
+  width: 100% !important;
   grid-template-rows: repeat(3, minmax(0, 10rem)) 20rem;
   row-gap: 1rem;
   justify-content: center;
@@ -682,7 +683,6 @@ div[class^="house-card-detail"] > img {
 .contact-btn {
   background-color: var(--aqua);
   margin-top: 4rem;
-  transform: translate(5%, -20%);
   width: fit-content;
   padding: 2rem 1rem;
   border: none;
@@ -695,7 +695,10 @@ div[class^="house-card-detail"] > img {
 }
 
 .input-btn-container {
-  width: 0px;
+  display: flex;
+  width: 100% !important;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-btn:hover {
@@ -836,7 +839,6 @@ div[class^="house-card-detail"] > img {
   }
 
   .form-content {
-    transform: translateX(0);
     text-align: center;
     width: 80vw;
     margin: 3rem auto;
