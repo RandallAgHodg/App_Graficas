@@ -10,239 +10,6 @@ let formCameraBtn;
 let formRemember;
 let supportForm;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const uiControl = new UI();
-  window.moveTo(0, 0);
-  if (document.querySelector(".address-field input"))
-    uiControl.validateInputs();
-  if (window.location.pathname.substring(0, 6) !== "/admin") {
-    nav = document.querySelector(".links-container");
-    burger = document.querySelector(".burger");
-    links = document.querySelectorAll(".nav-links a");
-
-    burger.addEventListener("click", () => {
-      nav.classList.toggle("nav-open");
-      burger.classList.toggle("toggle");
-      burger.classList.toggle("border-none");
-    });
-
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.toggle("nav-open");
-        burger.classList.toggle("toggle");
-      });
-    });
-
-    uiControl.toggleFooter();
-
-    var map = L.map("map").setView([12.12976, -86.26684], 16);
-
-    var tiles = L.tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        maxZoom: 19,
-        attribution:
-          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }
-    ).addTo(map);
-
-    var marker = L.marker([12.12976, -86.26684]).addTo(map);
-  }
-
-  if (
-    window.location.pathname === "/" ||
-    window.location.pathname === "/houses.html" ||
-    window.location.pathname === "/apartments.html"
-  ) {
-    const houses = document.querySelectorAll(".houses-section-house-card");
-    houses.forEach((house) => {
-      house.addEventListener("click", () => {
-        location.href = "/detailHouse.html";
-      });
-    });
-  }
-
-  switch (window.location.pathname) {
-    case "/":
-    case "/index.html":
-    case "/index.html":
-      uiControl.createModal();
-      document
-        .querySelector("body")
-        .addEventListener("wheel", uiControl.preventScroll, { passive: false });
-      setInterval(() => {
-        if (!document.querySelector(".modal")) uiControl.createModal();
-      }, 10800000);
-      if (document.querySelector(".modal")) uiControl.closeModal();
-      uiControl.initCountDown();
-      uiControl.configureBackgroundHeroImage();
-      uiControl.configureCarousel();
-      document
-        .querySelector(".hero-section-button")
-        .addEventListener("click", () => {
-          location.href = "./contact.html";
-        });
-      let video;
-      let canvas;
-      let context;
-      formOpenBtn = document.querySelector(".hero-section-content img");
-      formCloseBtn = document.querySelector(".close-support-form");
-      formCameraBtn = document.querySelector("#camera-btn");
-      supportForm = document.querySelector(".chat-form");
-
-      formCameraBtn.addEventListener("click", () => {
-        uiControl.enableWebCam();
-      });
-
-      formOpenBtn.addEventListener("click", () => {
-        supportForm.style.display = "block";
-        formOpenBtn.style.display = "none";
-        video = document.querySelector("#video");
-        canvas = document.querySelector("#video-canvas");
-        context = canvas.getContext("2d");
-      });
-
-      formCloseBtn.addEventListener("click", () => {
-        supportForm.style.display = "none";
-        formOpenBtn.style.display = "block";
-        uiControl.closeWebCam();
-      });
-      break;
-
-    case "/houses.html":
-    case "/houses":
-    case "/apartments.html":
-    case "/apartments":
-      uiControl.showAdvancedSearchFields();
-      break;
-
-    case "/contact.html":
-      tabs = document.querySelector(".wrapper");
-      tabButton = document.querySelectorAll(".tab-button");
-      contents = document.querySelectorAll(".content");
-      const labels = document.querySelectorAll("label");
-      const resetButtons = document.querySelectorAll("input[type=reset]");
-      resetButtons.forEach((button) => {
-        button.addEventListener("click", (e) => {
-          console.log(e);
-        });
-      });
-
-      tabs.onclick = (e) => {
-        const id = e.target.dataset.id;
-        if (id) {
-          tabButton.forEach((btn) => {
-            btn.classList.remove("active");
-          });
-          e.target.classList.add("active");
-
-          contents.forEach((content) => {
-            content.classList.remove("active");
-          });
-          const element = document.getElementById(id);
-          element.classList.add("active");
-        }
-      };
-
-      break;
-
-    case "/detailHouse.html":
-    case "/detailHouse":
-    case "/detailHouse.html".toLowerCase():
-    case "/detailHouse".toLowerCase():
-      var map = L.map("house-map").setView([12.12976, -86.26684], 16);
-
-      var tiles = L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-          maxZoom: 19,
-          attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        }
-      ).addTo(map);
-
-      var marker = L.marker([12.12976, -86.26684]).addTo(map);
-
-      const videoDetail = document.querySelector(".house-video");
-      const btnPlay = document.querySelector("#pauseBtn");
-      const stopBtn = document.querySelector("#stopBtn");
-      const previousBtn = document.querySelector("#previousBtn");
-      const advanceBtn = document.querySelector("#advanceBtn");
-
-      stopBtn.addEventListener("click", () => {
-        videoDetail.pause();
-        videoDetail.currentTime = 0;
-      });
-
-      btnPlay.addEventListener("click", () => {
-        if (videoDetail.paused) videoDetail.play();
-        else videoDetail.pause();
-      });
-
-      previousBtn.addEventListener("click", () => {
-        videoDetail.currentTime -= 5;
-      });
-
-      advanceBtn.addEventListener("click", () => {
-        videoDetail.currentTime += 5;
-      });
-
-      break;
-    case "/adminlogin":
-    case "/adminLogin.html":
-      document
-        .querySelector("#registerForm input[type=submit]")
-        .addEventListener("click", (e) => {
-          e.preventDefault();
-          location.href = "adminMain.html";
-        });
-      break;
-    case "/adminRemember.html":
-    case "/adminremember":
-      formRemember = document.querySelector("#rememberForm");
-
-      formRemember.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if (!document.querySelector(".alert")) {
-          uiControl.printAlert(
-            "success",
-            "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo "
-          );
-        }
-      });
-      break;
-    case "/adminMain.html":
-    case "/adminMain":
-    case "/adminMain.html".toLowerCase():
-    case "/adminMain".toLowerCase():
-      uiControl.toggleSideMenu();
-      setInterval(() => {
-        document
-          .getElementById("MyClockDisplay")
-          .addEventListener("onload", uiControl.showTime());
-      }, 1000);
-      break;
-    case "/adminAddHouses.html":
-    case "/adminaddhouses":
-    case "/adminAddApartments.html":
-    case "/adminaddapartments":
-    case "/adminCrudHouses.html":
-    case "/admincrudhouses":
-    case "/adminCrudApartments.html":
-    case "/admincrudapartments":
-      uiControl.toggleSideMenu();
-      uiControl.openCardInfo(
-        window.location.pathname === "/admincrudhouses" ||
-          window.location.pathname === "/adminCrudHouses.html" ||
-          window.location.pathname === "/admincrudapartments" ||
-          window.location.pathname === "/adminCrudApartments.html"
-      );
-      break;
-    default:
-      break;
-  }
-});
-
 class UI {
   constructor() {
     this.cameraStream = null;
@@ -353,21 +120,7 @@ class UI {
   createModal() {
     const body = document.querySelector("body");
     const modal = document.createElement("div");
-    const closeBtn = document.createElement("img");
-    const houseCardContainer = document.createElement("div");
-    const houseImg = document.createElement("img");
-    const houseCardInfo = document.createElement("div");
-    const houseCardContent = document.createElement("div");
-    const houseCardTitle = document.createElement("div");
-    const dot = document.createElement("div");
-    const houseTitle = document.createElement("h3");
-    const houseArea = document.createElement("h4");
-    const houseAddress = document.createElement("p");
-    const houseInfoState = document.querySelector("div");
-    const houseStateImg = document.createElement("img");
-    const houseState = document.createElement("h3");
-    const houseDiscount = document.createElement("h4");
-
+    document.querySelector(".mask").style.filter = "blur(8px)";
     modal.classList.add("modal");
     body.appendChild(modal);
 
@@ -419,14 +172,14 @@ class UI {
       !!!!Adquiere esta casa en las colinas con un <span>50%</span> de
       descuento antes de que la oferta acabe!!!
     </h1>`;
+    this.initCountDown();
   }
 
   closeModal() {
     const closeModalBtn = document.querySelector("#close-modal-btn");
     closeModalBtn.addEventListener("click", () => {
-      document.querySelector(".modal").style.display = "none";
+      document.querySelector(".modal").remove();
       document.querySelector(".mask").style.filter = "blur(0)";
-
       document
         .querySelector("body")
         .removeEventListener("wheel", this.preventScroll, {
@@ -448,9 +201,7 @@ class UI {
     const textarea = document.querySelectorAll(".address-field textarea");
     input.forEach((element) => {
       element.addEventListener("change", (e) => {
-        console.log(e);
         const label = e.target.nextElementSibling;
-        console.log(e.target.value);
         if (e.target.value.length > 0) {
           label.style.outline = "none";
           label.style.fontSize = "0.6rem";
@@ -482,25 +233,18 @@ class UI {
     resetBtns.forEach((button) => {
       button.addEventListener("click", () => {
         input.forEach((element) => {
-          console.log(element);
-          const label = element.target.nextElementSibling;
-          console.log(element.target.value);
-          if (element.target.value.length > 0) {
-            label.style.outline = "none";
-            label.style.fontSize = "0.6rem";
-            label.style.top = "0.5rem";
-          } else {
-            label.style.fontSize = "1.7rem";
-            label.style.top = "1.1rem";
-          }
+          const label = element.nextElementSibling;
+          console.log(label);
+          label.style.fontSize = "1.7rem";
+          label.style.top = "1.1rem";
         });
 
         textarea.forEach((element) => {
           element.addEventListener("change", (e) => {
             console.log(e);
-            const label = e.target.nextElementSibling;
-            console.log(e.target.value);
-            if (e.target.value.length > 0) {
+            const label = element.nextElementSibling;
+            console.log(element.value);
+            if (element.value.length > 0) {
               label.style.outline = "none";
               label.style.fontSize = "0.6rem";
               label.style.top = "0.5rem";
@@ -739,6 +483,25 @@ class UI {
     }
   }
 
+  registerVisit() {
+    let visitInfo = JSON.parse(localStorage.getItem("visit"));
+    if (document.querySelector(".modal")) return;
+    console.log("Wakaranai");
+    if (!visitInfo) {
+      visitInfo = {
+        state: true,
+      };
+      console.log("Me actualizo?");
+      localStorage.setItem("visit", JSON.stringify(visitInfo));
+      document.querySelector(".mask").style.filter = "blur(8px)";
+      this.createModal();
+      this.closeModal();
+      return;
+    }
+
+    console.log("No entro");
+  }
+
   toggleSideMenu() {
     const menuIzquierdo = document.querySelector(".menu-izquierdo");
 
@@ -797,7 +560,7 @@ class UI {
     return false;
   }
 
-  printAlert(type, message) {
+  printAlert(type, message, formParent) {
     const messageContainer = document.createElement("h1");
     messageContainer.classList.add("alert");
 
@@ -805,7 +568,7 @@ class UI {
     else messageContainer.style.backgroundColor = "green";
 
     messageContainer.textContent = message;
-    formRemember.appendChild(messageContainer);
+    formParent.appendChild(messageContainer);
 
     setTimeout(() => {
       messageContainer.remove();
@@ -813,14 +576,273 @@ class UI {
   }
 }
 
+const uiControl = new UI();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const uiControl = new UI();
+  window.moveTo(0, 0);
+  if (document.querySelector(".address-field input"))
+    uiControl.validateInputs();
+
+  if (window.location.pathname.substring(0, 6) !== "/admin") {
+    nav = document.querySelector(".links-container");
+    burger = document.querySelector(".burger");
+    links = document.querySelectorAll(".nav-links a");
+
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("nav-open");
+      burger.classList.toggle("toggle");
+      burger.classList.toggle("border-none");
+    });
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.toggle("nav-open");
+        burger.classList.toggle("toggle");
+      });
+    });
+
+    uiControl.toggleFooter();
+
+    var map = L.map("map").setView([12.12976, -86.26684], 16);
+
+    var tiles = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }
+    ).addTo(map);
+
+    var marker = L.marker([12.12976, -86.26684]).addTo(map);
+  }
+
+  if (
+    window.location.pathname === "/" ||
+    window.location.pathname === "/houses.html" ||
+    window.location.pathname === "/apartments.html"
+  ) {
+    const houses = document.querySelectorAll(".houses-section-house-card");
+    houses.forEach((house) => {
+      house.addEventListener("click", () => {
+        location.href = "/detailHouse.html";
+      });
+    });
+  }
+
+  switch (window.location.pathname) {
+    case "/":
+    case "/index.html":
+    case "/index.html":
+      const visit = localStorage.getItem("visit");
+      if (!visit) {
+        uiControl.createModal();
+        uiControl.closeModal();
+        localStorage.setItem("visit", 1);
+      } else {
+        setInterval(() => {
+          if (document.querySelector(".modal")) return;
+          uiControl.createModal();
+          uiControl.closeModal();
+        }, 10800000);
+      }
+      document
+        .querySelector("body")
+        .addEventListener("wheel", uiControl.preventScroll, {
+          passive: false,
+        });
+
+      uiControl.configureBackgroundHeroImage();
+      uiControl.configureCarousel();
+      document
+        .querySelector(".hero-section-button")
+        .addEventListener("click", () => {
+          location.href = "./contact.html";
+        });
+      let video;
+      let canvas;
+      let context;
+      formOpenBtn = document.querySelector(".hero-section-content img");
+      formCloseBtn = document.querySelector(".close-support-form");
+      formCameraBtn = document.querySelector("#camera-btn");
+      supportForm = document.querySelector(".chat-form");
+
+      formCameraBtn.addEventListener("click", () => {
+        uiControl.enableWebCam();
+      });
+
+      formOpenBtn.addEventListener("click", () => {
+        supportForm.style.display = "block";
+        formOpenBtn.style.display = "none";
+        video = document.querySelector("#video");
+        canvas = document.querySelector("#video-canvas");
+        context = canvas.getContext("2d");
+      });
+
+      formCloseBtn.addEventListener("click", () => {
+        supportForm.style.display = "none";
+        formOpenBtn.style.display = "block";
+        uiControl.closeWebCam();
+      });
+      break;
+
+    case "/houses.html":
+    case "/houses":
+    case "/apartments.html":
+    case "/apartments":
+      uiControl.showAdvancedSearchFields();
+      document.querySelector(".submit-btn").addEventListener("click", (e) => {
+        if (document.querySelector("#search").value === "") {
+          e.preventDefault();
+
+          uiControl.printAlert(
+            "error",
+            "Formulario inválido",
+            document.querySelector("#search-form")
+          );
+        }
+      });
+      break;
+
+    case "/contact.html":
+      tabs = document.querySelector(".wrapper");
+      tabButton = document.querySelectorAll(".tab-button");
+      contents = document.querySelectorAll(".content");
+      const labels = document.querySelectorAll("label");
+      const resetButtons = document.querySelectorAll("input[type=reset]");
+      const textInput = document.querySelectorAll("input[type=text]");
+      const textArea = document.querySelectorAll("textarea");
+      resetButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          labels.forEach((input) => {
+            input.style = "";
+          });
+        });
+      });
+
+      tabs.onclick = (e) => {
+        const id = e.target.dataset.id;
+        if (id) {
+          tabButton.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          e.target.classList.add("active");
+
+          contents.forEach((content) => {
+            content.classList.remove("active");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+        }
+      };
+
+      break;
+
+    case "/detailHouse.html":
+    case "/detailHouse":
+    case "/detailHouse.html".toLowerCase():
+    case "/detailHouse".toLowerCase():
+      var map = L.map("house-map").setView([12.12976, -86.26684], 16);
+
+      var tiles = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }
+      ).addTo(map);
+
+      var marker = L.marker([12.12976, -86.26684]).addTo(map);
+
+      const videoDetail = document.querySelector(".house-video");
+      const btnPlay = document.querySelector("#pauseBtn");
+      const stopBtn = document.querySelector("#stopBtn");
+      const previousBtn = document.querySelector("#previousBtn");
+      const advanceBtn = document.querySelector("#advanceBtn");
+
+      stopBtn.addEventListener("click", () => {
+        videoDetail.pause();
+        videoDetail.currentTime = 0;
+      });
+
+      btnPlay.addEventListener("click", () => {
+        if (videoDetail.paused) videoDetail.play();
+        else videoDetail.pause();
+      });
+
+      previousBtn.addEventListener("click", () => {
+        videoDetail.currentTime -= 5;
+      });
+
+      advanceBtn.addEventListener("click", () => {
+        videoDetail.currentTime += 5;
+      });
+
+      break;
+    case "/adminlogin":
+    case "/adminLogin.html":
+      document
+        .querySelector("#registerForm input[type=submit]")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          location.href = "adminMain.html";
+        });
+      break;
+    case "/adminRemember.html":
+    case "/adminremember":
+      formRemember = document.querySelector("#rememberForm");
+
+      formRemember.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!document.querySelector(".alert")) {
+          uiControl.printAlert(
+            "success",
+            "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo "
+          );
+        }
+      });
+      break;
+    case "/adminMain.html":
+    case "/adminMain":
+    case "/adminMain.html".toLowerCase():
+    case "/adminMain".toLowerCase():
+      uiControl.toggleSideMenu();
+      setInterval(() => {
+        document
+          .getElementById("MyClockDisplay")
+          .addEventListener("onload", uiControl.showTime());
+      }, 1000);
+      break;
+    case "/adminAddHouses.html":
+    case "/adminaddhouses":
+    case "/adminAddApartments.html":
+    case "/adminaddapartments":
+    case "/adminCrudHouses.html":
+    case "/admincrudhouses":
+    case "/adminCrudApartments.html":
+    case "/admincrudapartments":
+      uiControl.toggleSideMenu();
+      uiControl.openCardInfo(
+        window.location.pathname === "/admincrudhouses" ||
+          window.location.pathname === "/adminCrudHouses.html" ||
+          window.location.pathname === "/admincrudapartments" ||
+          window.location.pathname === "/adminCrudApartments.html"
+      );
+      break;
+    default:
+      break;
+  }
+});
+
 document.addEventListener("click", (e) => {
   const ui = new UI();
   if (document.querySelector(".modal")) {
     if (
-      e.target.classList.contains("modal") ||
-      e.target.parentNode.classList.contains("modal") ||
-      e.target.parentNode.parentNode.classList.contains("modal") ||
-      e.target.parentNode.parentNode.parentNode.classList.contains("modal")
+      e.target?.classList.contains("modal") ||
+      e.target?.parentNode.classList.contains("modal") ||
+      e.target?.parentNode.parentNode.parentNode.classList.contains("modal")
     ) {
       console.log(e);
       return;

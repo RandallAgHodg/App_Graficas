@@ -314,8 +314,6 @@ body {
 .mask {
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent),
     url("/imgs/arriba.jpg");
-
-  filter: blur(8px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 200%;
@@ -351,6 +349,7 @@ section[class$="section"] {
 }
 
 .logo {
+  align-self: center;
   height: 15vh;
 }
 
