@@ -73,7 +73,7 @@ class UI {
         if (isAdmin) {
           acceptBtn.innerText = "Editar";
           acceptBtn.classList.add("edit-btn");
-          rejectBtn.innerText = "Eliminar";
+          rejectBtn.innerText = "Dar de baja";
           acceptBtn.classList.add("reject-btn");
           acceptBtn.addEventListener("click", () => {
             location.href = "/adminEditProperty.html";
@@ -120,7 +120,8 @@ class UI {
   createModal() {
     const body = document.querySelector("body");
     const modal = document.createElement("div");
-    document.querySelector(".mask").style.filter = "blur(8px)";
+    if (document.querySelector(".mask"))
+      document.querySelector(".mask").style.filter = "blur(8px)";
     modal.classList.add("modal");
     body.appendChild(modal);
 
@@ -215,9 +216,7 @@ class UI {
 
     textarea.forEach((element) => {
       element.addEventListener("change", (e) => {
-        console.log(e);
         const label = e.target.nextElementSibling;
-        console.log(e.target.value);
         if (e.target.value.length > 0) {
           label.style.outline = "none";
           label.style.fontSize = "0.6rem";
@@ -234,16 +233,13 @@ class UI {
       button.addEventListener("click", () => {
         input.forEach((element) => {
           const label = element.nextElementSibling;
-          console.log(label);
           label.style.fontSize = "1.7rem";
           label.style.top = "1.1rem";
         });
 
         textarea.forEach((element) => {
           element.addEventListener("change", (e) => {
-            console.log(e);
             const label = element.nextElementSibling;
-            console.log(element.value);
             if (element.value.length > 0) {
               label.style.outline = "none";
               label.style.fontSize = "0.6rem";
@@ -483,25 +479,6 @@ class UI {
     }
   }
 
-  registerVisit() {
-    let visitInfo = JSON.parse(localStorage.getItem("visit"));
-    if (document.querySelector(".modal")) return;
-    console.log("Wakaranai");
-    if (!visitInfo) {
-      visitInfo = {
-        state: true,
-      };
-      console.log("Me actualizo?");
-      localStorage.setItem("visit", JSON.stringify(visitInfo));
-      document.querySelector(".mask").style.filter = "blur(8px)";
-      this.createModal();
-      this.closeModal();
-      return;
-    }
-
-    console.log("No entro");
-  }
-
   toggleSideMenu() {
     const menuIzquierdo = document.querySelector(".menu-izquierdo");
 
@@ -550,7 +527,7 @@ class UI {
     document.getElementById("MyClockDisplay").innerText = time;
     document.getElementById("MyClockDisplay").textContent = time;
 
-    setTimeout(showTime, 1000);
+    setTimeout(this.showTime, 1000);
   }
 
   preventScroll(e) {
@@ -585,6 +562,30 @@ document.addEventListener("DOMContentLoaded", () => {
     uiControl.validateInputs();
 
   if (window.location.pathname.substring(0, 6) !== "/admin") {
+    if (window.innerWidth > 1024) {
+      const visit = localStorage.getItem("visit");
+      if (!visit) {
+        uiControl.createModal();
+        uiControl.closeModal();
+        localStorage.setItem("visit", 1);
+        document
+          .querySelector("body")
+          .addEventListener("wheel", uiControl.preventScroll, {
+            passive: false,
+          });
+      } else {
+        setInterval(() => {
+          if (document.querySelector(".modal")) return;
+          uiControl.createModal();
+          document
+            .querySelector("body")
+            .addEventListener("wheel", uiControl.preventScroll, {
+              passive: false,
+            });
+          uiControl.closeModal();
+        }, 10800000);
+      }
+    }
     nav = document.querySelector(".links-container");
     burger = document.querySelector(".burger");
     links = document.querySelectorAll(".nav-links a");
@@ -635,24 +636,6 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/":
     case "/index.html":
     case "/index.html":
-      const visit = localStorage.getItem("visit");
-      if (!visit) {
-        uiControl.createModal();
-        uiControl.closeModal();
-        localStorage.setItem("visit", 1);
-      } else {
-        setInterval(() => {
-          if (document.querySelector(".modal")) return;
-          uiControl.createModal();
-          uiControl.closeModal();
-        }, 10800000);
-      }
-      document
-        .querySelector("body")
-        .addEventListener("wheel", uiControl.preventScroll, {
-          passive: false,
-        });
-
       uiControl.configureBackgroundHeroImage();
       uiControl.configureCarousel();
       document
@@ -799,7 +782,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!document.querySelector(".alert")) {
           uiControl.printAlert(
             "success",
-            "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo "
+            "Se han enviado los pasos correspondientes a la recuperación de cuenta a su correo ",
+            formRemember
           );
         }
       });
@@ -830,6 +814,10 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.pathname === "/admincrudapartments" ||
           window.location.pathname === "/adminCrudApartments.html"
       );
+      if (document.querySelector("#state"))
+        document.querySelector("#state").addEventListener("click", () => {
+          return false;
+        });
       break;
     default:
       break;
@@ -844,7 +832,6 @@ document.addEventListener("click", (e) => {
       e.target?.parentNode.classList.contains("modal") ||
       e.target?.parentNode.parentNode.parentNode.classList.contains("modal")
     ) {
-      console.log(e);
       return;
     }
     const modal = document.querySelector(".modal");

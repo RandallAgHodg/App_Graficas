@@ -488,7 +488,7 @@
                       <button
                         type="button"
                         class="button-increment"
-                        onclick="setNumber(event)"
+                        onclick="(e) => console.log(e)"
                         data-operation="increment"
                       ></button>
                     </div>
@@ -565,10 +565,8 @@
                   </div>
                 </div>
                 <input class="btn-submit" type="submit" value="Enviar" />
-
                 <input
-                  required
-                  class="btn-submit reset"
+                  class="btn-submit"
                   type="reset"
                   value="Reiniciar campos"
                 />

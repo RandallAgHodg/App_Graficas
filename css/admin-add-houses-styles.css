@@ -648,6 +648,10 @@ input[type="range"]::-ms-thumb {
   transform: rotate(45deg);
 }
 
+.state {
+  align-self: center;
+}
+
 .submit-btn {
   margin: 0 auto;
   padding: 1.4rem 6rem;
@@ -879,6 +883,11 @@ input[type="number"] {
 
 .house-card-info {
   display: flex;
+  justify-content: space-between;
+}
+
+.state .discounts-input[readonly] {
+  pointer-events: none;
 }
 
 .house-card:hover {
