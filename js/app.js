@@ -878,6 +878,17 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelector("#registerForm input[type=submit]")
         .addEventListener("click", (e) => {
           e.preventDefault();
+          if (
+            document.querySelector("#username") === "" ||
+            document.querySelector("#password").value === ""
+          ) {
+            uiControl.printAlert(
+              "error",
+              "Formulario invalido",
+              document.querySelector("#registerForm")
+            );
+            return;
+          }
           location.href = "adminMain.html";
         });
       break;
