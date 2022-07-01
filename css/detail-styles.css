@@ -788,7 +788,6 @@ div[class^="house-card-detail"] > img {
 
 .house-video {
   width: 80vw;
-  height: 60vh;
   margin: 0 auto;
 }
 
@@ -1027,13 +1026,14 @@ div[class^="house-card-detail"] > img {
   }
 
   .form-content {
+    transform: translateX(0);
     text-align: center;
     width: 80vw;
     margin: 3rem auto;
   }
 
   .contact-btn {
-    transform: translateX(-15%);
+    transform: translateX(0);
   }
 
   .agent-form {

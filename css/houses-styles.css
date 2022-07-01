@@ -1265,14 +1265,32 @@ input[type="number"] {
 
   .advanced-search-fields {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
-  .advanced-search-fields .pools-field,
-  .advanced-search-fields .floors-field,
-  .advanced-search-fields .rooms-field {
-    transform: translateX(40%);
+  .number-input-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: fit-content !important;
+  }
+
+  .number-input-text-box {
+    background-color: transparent !important;
+  }
+
+  .number-input {
+    width: 75%;
+  }
+
+  .pools-field,
+  .floors-field,
+  .rooms-field {
+    margin: 0 3rem;
+  }
+
+  .number-input-text-box {
+    text-align: center;
   }
 
   .advanced-search-fields .discounts-field {
