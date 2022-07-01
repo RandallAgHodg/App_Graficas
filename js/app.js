@@ -538,6 +538,7 @@ class UI {
   }
 
   printAlert(type, message, formParent) {
+    if (document.querySelector(".alert")) return;
     const messageContainer = document.createElement("h1");
     messageContainer.classList.add("alert");
 
@@ -674,6 +675,10 @@ document.addEventListener("DOMContentLoaded", () => {
     case "/houses":
     case "/apartments.html":
     case "/apartments":
+      const buttonIncrement = document.querySelector(".button-increment");
+      buttonIncrement.addEventListener("click", (e) => {
+        console.log(e);
+      });
       uiControl.showAdvancedSearchFields();
       document.querySelector(".submit-btn").addEventListener("click", (e) => {
         if (document.querySelector("#search").value === "") {
