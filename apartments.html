@@ -106,28 +106,18 @@
             </div>
           </div>
           <div id="advanced-search-fields" class="hidden">
-            <div class="rooms-field">
-              <div>
-                <label for="rooms-input">Cuartos</label>
-              </div>
-              <div class="number-input-container">
-                <button type="button" class="button-decrement"></button>
-                <div class="number-input">
-                  <input
-                    type="number"
-                    id="rooms-input"
-                    name="floors"
-                    class="number-input-text-box"
-                    value="0"
-                    min="0"
-                    max="3"
-                    data-step="1"
-                  />
-                </div>
-                <button type="button" class="button-increment"></button>
+            <div class="form-group">
+              <label for="">Cuartos</label>
+              <div class="quantity">
+                <input type="number" />
               </div>
             </div>
-
+            <div class="form-group">
+              <label for="">Baños</label>
+              <div class="quantity">
+                <input type="number" />
+              </div>
+            </div>
             <div class="discounts-field">
               <input
                 type="checkbox"
@@ -135,7 +125,7 @@
                 class="discounts-input"
                 id="balcon-input"
               />
-              <label for="balcon-input">Con balcon</label>
+              <label for="balcon-input">Con balcón</label>
             </div>
 
             <div class="discounts-field">
@@ -146,6 +136,16 @@
                 id="terraza-input"
               />
               <label for="terraza-input">Con terraza</label>
+            </div>
+
+            <div class="discounts-field">
+              <input
+                type="checkbox"
+                name="discounts-input"
+                class="discounts-input"
+                id="rent-input"
+              />
+              <label for="rent-input">En renta</label>
             </div>
           </div>
           <div class="search-btn">

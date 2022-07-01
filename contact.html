@@ -192,147 +192,58 @@
                     <label for="telephone">Precio (en &dollar;)</label>
                   </div>
                 </div>
-
-                <div class="numeric-inputs">
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Baños</label>
-                    </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
+                <div class="fields">
+                  <div id="advanced-search-fields" class="hidden">
+                    <div class="form-group">
+                      <label for="">Cuartos</label>
+                      <div class="quantity">
+                        <input type="number" />
                       </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="setNumber(event)"
-                        data-operation="increment"
-                      ></button>
                     </div>
-                  </div>
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Pisos</label>
-                    </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
+                    <div class="form-group">
+                      <label for="">Baños</label>
+                      <div class="quantity">
+                        <input type="number" />
                       </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="setNumber(event)"
-                        data-operation="increment"
-                      ></button>
                     </div>
-                  </div>
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Habitaciones</label>
-                    </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
+                    <div class="form-group">
+                      <label for="">Piscinas</label>
+                      <div class="quantity">
+                        <input type="number" />
                       </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="setNumber(event)"
-                        data-operation="increment"
-                      ></button>
                     </div>
                   </div>
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Dormitorios</label>
+                  <div class="checkbox-info-input">
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="balcon-input"
+                        class="discounts-input"
+                        id="balcon-checkbox"
+                      />
+                      <label for="balcon-checkbox">Con balcón</label>
                     </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
-                      </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="setNumber(event)"
-                        data-operation="increment"
-                      ></button>
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="pool-checkbox"
+                        class="discounts-input"
+                        id="pool-checkbox"
+                      />
+                      <label for="pool-checkbox">Con Piscina</label>
                     </div>
-                  </div>
-                </div>
-                <div class="checkbox-info-input">
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="balcon-input"
-                      class="discounts-input"
-                      id="balcon-checkbox"
-                    />
-                    <label for="balcon-checkbox">Con balcón</label>
-                  </div>
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="pool-checkbox"
-                      class="discounts-input"
-                      id="pool-checkbox"
-                    />
-                    <label for="pool-checkbox">Con Piscina</label>
-                  </div>
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="terraza-input"
-                      class="discounts-input"
-                      id="terraza-checkbox"
-                    />
-                    <label for="terraza-checkbox">Con Terraza</label>
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="terraza-input"
+                        class="discounts-input"
+                        id="terraza-checkbox"
+                      />
+                      <label for="terraza-checkbox">Con Terraza</label>
+                    </div>
                   </div>
                 </div>
                 <div class="address-field">
@@ -438,92 +349,52 @@
                   </div>
                 </div>
 
-                <div class="numeric-inputs">
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Baños</label>
-                    </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
+                <div class="fields">
+                  <div id="advanced-search-fields" class="hidden">
+                    <div class="form-group">
+                      <label for="">Cuartos</label>
+                      <div class="quantity">
+                        <input type="number" />
                       </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="setNumber(event)"
-                        data-operation="increment"
-                      ></button>
                     </div>
-                  </div>
-                  <div class="pools-field number-info-input">
-                    <div>
-                      <label for="pools-input">Habitaciones</label>
-                    </div>
-                    <div class="number-input-container">
-                      <button type="button" class="button-decrement"></button>
-                      <div class="number-input">
-                        <input
-                          required
-                          type="number"
-                          id="pools-input"
-                          name="hue"
-                          class="number-input-text-box"
-                          value="0"
-                          min="0"
-                          max="2"
-                          data-step="1"
-                        />
+                    <div class="form-group">
+                      <label for="">Baños</label>
+                      <div class="quantity">
+                        <input type="number" />
                       </div>
-                      <button
-                        type="button"
-                        class="button-increment"
-                        onclick="(e) => console.log(e)"
-                        data-operation="increment"
-                      ></button>
                     </div>
                   </div>
-                </div>
-                <div class="checkbox-info-input">
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="balcon-input"
-                      class="discounts-input"
-                      id="balcon-apartment-checkbox"
-                    />
-                    <label for="balcon-apartment-checkbox">Con balcón</label>
-                  </div>
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="pool-checkbox"
-                      class="discounts-input"
-                      id="pool-apartment-checkbox"
-                    />
-                    <label for="pool-apartment-checkbox">Con Piscina</label>
-                  </div>
-                  <div class="discounts-field">
-                    <input
-                      required
-                      type="checkbox"
-                      name="terraza-input"
-                      class="discounts-input"
-                      id="terraza-apartment-checkbox"
-                    />
-                    <label for="terraza-apartment-checkbox">Con Terraza</label>
+                  <div class="checkbox-info-input">
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="balcon-input"
+                        class="discounts-input"
+                        id="balcon-checkbox"
+                      />
+                      <label for="balcon-checkbox">Con balcón</label>
+                    </div>
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="pool-checkbox"
+                        class="discounts-input"
+                        id="pool-checkbox"
+                      />
+                      <label for="pool-checkbox">Con Piscina</label>
+                    </div>
+                    <div class="discounts-field">
+                      <input
+                        required
+                        type="checkbox"
+                        name="terraza-input"
+                        class="discounts-input"
+                        id="terraza-checkbox"
+                      />
+                      <label for="terraza-checkbox">Con Terraza</label>
+                    </div>
                   </div>
                 </div>
                 <div class="address-field">
